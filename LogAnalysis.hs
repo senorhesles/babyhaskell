@@ -5,6 +5,8 @@ module LogAnalysis where
 import Prelude
 import Log
 
+-- ex1
+
 parse :: String -> [LogMessage]
 parse x = strList2LogList $ lines x
 
@@ -22,26 +24,6 @@ string2Log ("E":y:z:zs) = LogMessage (Error (read y)) (read z) (unwords zs)
 string2Log _ = Unknown "random"
 
 --ex2
-
-data Treey = Leafy Char | Nodey Treey Int Treey
-
-tree :: Treey
-tree = Nodey (Leafy 'x') 1 (Nodey (Leafy 'y') 2 (Leafy 'z'))
-
-messagetree :: MessageTree
-messagetree = Node
-              (Node
-               Leaf
-               (LogMessage Warning 51 "sup")
-               Leaf)
-              (LogMessage Warning 52 "hello")
-              (Node
-               Leaf
-               (LogMessage Warning 53 "hi")
-               Leaf)
-
---insert :: LogMessage -> MessageTree -> MessageTree
---insert x (Leaf) = (Node Leaf x Leaf)
 
 insert' :: LogMessage -> MessageTree -> MessageTree
 insert' x (Node z y w)
@@ -68,3 +50,6 @@ tree2Time (Leaf) = 0
 tree2Log :: MessageTree -> LogMessage
 tree2Log (Node _ n _) = n
 tree2Log (Leaf) = (Unknown "what")
+
+build :: [LogMessage] -> MessageTree
+build 
