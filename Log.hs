@@ -9,9 +9,7 @@ data LogMessage = LogMessage MessageType TimeStamp String | Unknown String deriv
 data MessageType = Info | Warning | Error Int deriving (Show, Eq)
 
 type TimeStamp = Int
-
 data MessageTree = Leaf | Node MessageTree LogMessage MessageTree deriving (Show, Eq)
-
 -- | @testParse p n f@ tests the log file parser @p@ by running it
 --   on the first @n@ lines of file @f@.
 testParse :: (String -> [LogMessage]) -> Int -> FilePath -> IO [LogMessage]

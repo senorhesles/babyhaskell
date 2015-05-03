@@ -1,5 +1,5 @@
 
-./LogAnalysis.hs,272
+./LogAnalysis.hs,738
 module LogAnalysis LogAnalysis1,2
 parse parse7,8
 parse parse8,9
@@ -9,6 +9,24 @@ parseMessage parseMessage14,15
 parseMessage parseMessage15,16
 string2Log string2Log17,18
 string2Log string2Log18,19
+data Treey Treey25,26
+data Treey = Leafy Leafy25,26
+data Treey = Leafy Char | Nodey Nodey25,26
+tree tree27,28
+tree tree28,29
+messagetree messagetree30,31
+messagetree messagetree31,32
+insert insert42,43
+insert insert43,44
+insert' insert'46,47
+insert' insert'47,48
+--insert' --insert'52,53
+log2Time log2Time58,59
+log2Time log2Time59,60
+tree2Time tree2Time62,63
+tree2Time tree2Time63,64
+tree2Log tree2Log66,67
+tree2Log tree2Log67,68
 
 ./hw1.hs,72
 type Peg Peg3,4
@@ -169,13 +187,13 @@ data MessageType = Info Info8,9
 data MessageType = Info | Warning Warning8,9
 data MessageType = Info | Warning | Error Error8,9
 type TimeStamp TimeStamp10,11
-data MessageTree MessageTree12,13
-data MessageTree = Leaf Leaf12,13
-data MessageTree = Leaf | Node Node12,13
+data MessageTree MessageTree11,12
+data MessageTree = Leaf Leaf11,12
+data MessageTree = Leaf | Node Node11,12
+testParse testParse15,16
 testParse testParse16,17
-testParse testParse17,18
+testWhatWentWrong testWhatWentWrong21,22
 testWhatWentWrong testWhatWentWrong22,23
-testWhatWentWrong testWhatWentWrong23,24
 
 ./cis194hw1.hs,479
 toDigits toDigits3,4
