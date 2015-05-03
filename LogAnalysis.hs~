@@ -1,0 +1,36 @@
+{-# OPTIONS_GHC -Wall #-}
+module LogAnalysis where
+
+
+import Prelude
+import Log
+
+
+{-
+parseMessage "E 2 562 help help"
+        == LogMessage (Error 2) 562 "help help"
+-}
+
+
+
+parseMessage :: String -> LogMessage
+parseMessage x = intermediary $ words x
+
+intermediary :: [String] -> LogMessage
+intermediary ("I":y:zs) = LogMessage Info (read y) (unwords zs)
+intermediary ("W":y:zs) = LogMessage Warning (read y) (unwords zs)
+intermediary ("E":y:z:zs) = LogMessage (Error (read y)) (read z) (unwords zs)
+intermediary _ = Unknown "random"
+
+parse :: String -> [LogMessage]
+parse x = intermediary2 $ lines x
+
+intermediary2 :: [String] -> [LogMessage]
+intermediary2 (x:xs) = (parseMessage x) : (intermediary2 xs)
+intermediary2 [] = []
+
+list2String :: [String] -> String
+list2String [x] = x
+list2String [] = "You gave me an empty list...what the heck?"
+list2String _ = "Please try again"
+

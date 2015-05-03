@@ -1,0 +1,12 @@
+
+import Prelude
+
+data Friends = Kris
+             | Blanche
+             | Blake
+             | Steve
+             | Diego
+             | Luis
+             | Ales
+             | Haleigh
+             deriving Show

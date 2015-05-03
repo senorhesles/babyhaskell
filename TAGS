@@ -1,5 +1,86 @@
 
-./cheatsheet.hs,288
+./LogAnalysis.hs,272
+module LogAnalysis LogAnalysis1,2
+parse parse7,8
+parse parse8,9
+strList2LogList strList2LogList10,11
+strList2LogList strList2LogList11,12
+parseMessage parseMessage14,15
+parseMessage parseMessage15,16
+string2Log string2Log17,18
+string2Log string2Log18,19
+
+./hw1.hs,72
+type Peg Peg3,4
+type Move Move4,5
+hanoi hanoi6,7
+hanoi hanoi7,8
+
+./hw2.hs,1844
+data Friend Friend3,4
+data Friend = KrisKris3,4
+             | BlancheBlanche4,5
+             | BlakeBlake5,6
+             | SteveSteve6,7
+             | DiegoDiego7,8
+             | LuisLuis8,9
+             | AlesAles9,10
+             | HaleighHaleigh10,11
+             | RyanRyan11,12
+             | ZachZach12,13
+kris kris15,16
+kris kris16,17
+listOFriends listOFriends18,19
+listOFriends listOFriends19,20
+isBoy isBoy21,22
+isBoy isBoy22,23
+isBoy2 isBoy235,36
+isBoy2 isBoy236,37
+data FailableDouble FailableDouble42,43
+data FailableDouble = FailureFailure42,43
+                    | OK OK43,44
+ex01 ex0146,47
+ex02 ex0247,48
+safeDiv safeDiv51,52
+safeDiv safeDiv52,53
+saveDiv saveDiv53,54
+safeDiv' safeDiv'55,56
+safeDiv' safeDiv'56,57
+failureToZero failureToZero59,60
+failureToZero failureToZero60,61
+data Person Person65,66
+data Person = Person Person65,66
+blake blake69,70
+blake blake70,71
+stan stan72,73
+stan stan73,74
+getAge getAge77,78
+getAge getAge78,79
+baz baz86,87
+baz baz87,88
+ex05 ex0589,90
+failureToZero' failureToZero'96,97
+failureToZero' failureToZero'97,98
+data IntList IntList101,102
+data IntList = Empty Empty101,102
+data IntList = Empty | Cons Cons101,102
+intListProd intListProd103,104
+intListProd intListProd104,105
+data Tree Tree108,109
+data Tree = Leaf Leaf108,109
+          | Node Node109,110
+tree tree112,113
+tree tree113,114
+data MessageType MessageType115,116
+data MessageType = Info Info115,116
+data MessageType = Info | Warning Warning115,116
+data MessageType = Info | Warning | Error Error115,116
+type TimeStamp TimeStamp117,118
+data LogMessage LogMessage119,120
+data LogMessage = LogMessage LogMessage119,120
+data LogMessage = LogMessage MessageType TimeStamp String | Unknown Unknown119,120
+
+./cheatsheet.hs,1798
 doubleMe doubleMe3,4
 doubleMe doubleMe4,5
 doubleUs doubleUs6,7
@@ -9,3 +90,109 @@ doubleSmallNumber doubleSmallNumber32,33
 doubleSmallNumber doubleSmallNumber33,34
 doubleSmallNumber' doubleSmallNumber'37,38
 doubleSmallNumber' doubleSmallNumber'38,39
+n n41,42
+n n42,43
+reallyBig reallyBig44,45
+reallyBig reallyBig45,46
+numDigits numDigits47,48
+numDigits numDigits48,49
+d1, d2 d250,51
+d1,d150,51
+d1 d151,52
+d2 d252,53
+ex01 ex0154,55
+ex02 ex0255,56
+ex03 ex0356,57
+ex04 ex0457,58
+ex05 ex0558,59
+ex06 ex0659,60
+ex07 ex0760,61
+ex08 ex0861,62
+i1 i162,63
+i1 i163,64
+ex11 ex1166,67
+ex12 ex1267,68
+ex13 ex1368,69
+ex14 ex1469,70
+ex15 ex1570,71
+ex16 ex1671,72
+sumtorial sumtorial74,75
+sumtorial sumtorial75,76
+mariotorial mariotorial78,79
+mariotorial mariotorial79,80
+hailstone hailstone82,83
+  | n `mod`mod84,85
+foo foo87,88
+foo foo88,89
+isEven isEven98,99
+p p102,103
+p p103,104
+sumPair sumPair105,106
+sumPair sumPair106,107
+f f108,109
+f f109,110
+nums, range, range2 range2113,114
+nums, range,range113,114
+nums,nums113,114
+nums nums114,115
+range range115,116
+range2 range2116,117
+person person118,119
+person person119,120
+hello1 hello1121,122
+hello1 hello1122,123
+hello2 hello2124,125
+hello2 hello2125,126
+emptyList emptyList127,128
+ex18 ex18129,130
+ex19 ex19130,131
+ex20 ex20131,132
+ex21 ex21132,133
+hailstoneSeq hailstoneSeq134,135
+hailstoneSeq hailstoneSeq135,136
+intListLength intListLength139,140
+intListLength intListLength140,141
+sumEveryTwo sumEveryTwo143,144
+sumEveryTwo sumEveryTwo144,145
+sumEveryThree sumEveryThree148,149
+sumEveryThree sumEveryThree149,150
+hailstoneLen hailstoneLen155,156
+hailstoneLen hailstoneLen156,157
+
+./Log.hs,633
+module Log Log2,3
+data LogMessage LogMessage6,7
+data LogMessage = LogMessage LogMessage6,7
+data LogMessage = LogMessage MessageType TimeStamp String | Unknown Unknown6,7
+data MessageType MessageType8,9
+data MessageType = Info Info8,9
+data MessageType = Info | Warning Warning8,9
+data MessageType = Info | Warning | Error Error8,9
+type TimeStamp TimeStamp10,11
+data MessageTree MessageTree12,13
+data MessageTree = Leaf Leaf12,13
+data MessageTree = Leaf | Node Node12,13
+testParse testParse16,17
+testParse testParse17,18
+testWhatWentWrong testWhatWentWrong22,23
+testWhatWentWrong testWhatWentWrong23,24
+
+./cis194hw1.hs,479
+toDigits toDigits3,4
+toDigits toDigits4,5
+toDigitsRev:toDigitsRev8,9
+toDigitsRev toDigitsRev9,10
+doubleEveryOther doubleEveryOther11,12
+doubleEveryOther doubleEveryOther12,13
+toDigitsList toDigitsList15,16
+toDigitsList toDigitsList16,17
+sumDigits sumDigits19,20
+sumDigits sumDigits20,21
+validate validate23,24
+validate validate24,25
+type Peg Peg26,27
+type Move Move27,28
+hanoi hanoi29,30
+hanoi hanoi30,31
+hanoi2 hanoi234,35
+hanoi2 hanoi235,36
