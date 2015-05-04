@@ -8,7 +8,7 @@ data LogMessage = LogMessage MessageType TimeStamp String | Unknown String deriv
 
 data MessageType = Info | Warning | Error ErrorInt deriving (Show, Eq)
 
-type ErrorInt = Int
+type ErrorInt = Int2
 type TimeStamp = Int
 data MessageTree = Leaf | Node MessageTree LogMessage MessageTree deriving (Show, Eq)
 -- | @testParse p n f@ tests the log file parser @p@ by running it

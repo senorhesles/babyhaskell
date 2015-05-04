@@ -52,4 +52,48 @@ tree2Log (Node _ n _) = n
 tree2Log (Leaf) = (Unknown "what")
 
 build :: [LogMessage] -> MessageTree
-build 
+build (x:xs) = insert' x (build xs)
+build [] = (Leaf)
+
+inOrder :: MessageTree -> [LogMessage]
+inOrder x = (tree2Log x):(inOrder x)
+
+--whatWentWrong :: [LogMessage] -> [String]
+--whatWentWrong (x:xs) =
+
+
+
+-- Ok the trouble is...I need to get an ErrorInt...but not all MessageTypes have ErrorInts
+-- So my function isn't going to be able to be total. I won't be able to go from any LogMessage
+-- to an ErrorInt...only some will have an output...I could just have the rest all go to zero
+-- but that feels so cheap
+
+-- Ok ...JMJ...I figured it out...with help...I can specify that its a function that only
+-- takes as inputs (LogMessage (Error ErrorInt))...derp...thought it could only be from
+-- LogMessage
+
+-- Or not...
+
+
+--log2ErrorInt' (LogMessage (Error x)_ _) = x
+
+--log2ErrorInt :: LogMessage -> ErrorInt
+--log2ErrorInt (LogMessage (Error x) _ _) = x
+
+log2MaybeErrorInt :: LogMessage -> Maybe ErrorInt
+log2MaybeErrorInt (LogMessage (Error x) _ _) = Just x
+log2MaybeErrorInt _ = Nothing
+
+maybeErrorInt2ErrorInt :: Maybe ErrorInt -> ErrorInt
+maybeErrorInt2ErrorInt (Just x) = x
+maybeErrorInt2ErrorInt Nothing = 0
+
+log2ErrorInt :: LogMessage -> ErrorInt
+log2ErrorInt x = maybeErrorInt2ErrorInt $ log2MaybeErrorInt x
+
+whatWentWrong :: [LogMessage] -> [String]
+whatWentWrong (x:xs) =
+
+
+-- Ok, take List of Logs, get those with E 50 or more, put them in new list, sort them by time
+-- stamp, replace them with their corresponding Strings
