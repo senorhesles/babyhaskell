@@ -61,7 +61,5 @@ sortByTimeGetText _ = []
 whatWentWrong :: [LogMessage] -> [String]
 whatWentWrong x = sortByTimeGetText $ errorsAbove x
 
--- Ok, take List of Logs, get those with E 50 or more, put them in new list, sort them by time
--- stamp, replace them with their corresponding Strings
+-- JMJ
 
--- Where we're at is...we can't filter for Errors...or by Errors of a particular severity. In addition, we don't know how to order a Message Tree based on timestamp
