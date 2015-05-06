@@ -1,5 +1,5 @@
 
-./LogAnalysis.hs,773
+./LogAnalysis.hs,719
 module LogAnalysis LogAnalysis1,2
 parse parse6,7
 parse parse7,8
@@ -9,20 +9,18 @@ parseMessage parseMessage13,14
 parseMessage parseMessage14,15
 string2Log string2Log16,17
 string2Log string2Log17,18
-insert' insert'22,23
-insert' insert'23,24
+insert insert22,23
+insert insert23,24
 log2Time log2Time30,31
 log2Time log2Time31,32
-tree2Log tree2Log34,35
-tree2Log tree2Log35,36
-build build38,39
-build build39,40
-inOrder inOrder42,43
-inOrder inOrder43,44
+build build34,35
+build build35,36
+inOrder inOrder39,40
+inOrder inOrder40,41
+tree2Time tree2Time44,45
 tree2Time tree2Time45,46
-tree2Time tree2Time46,47
+errorsAbove errorsAbove48,49
 errorsAbove errorsAbove49,50
-errorsAbove errorsAbove50,51
 sortByTimeGetText sortByTimeGetText59,60
 sortByTimeGetText sortByTimeGetText60,61
 whatWentWrong whatWentWrong66,67
