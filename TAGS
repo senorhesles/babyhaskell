@@ -1,5 +1,5 @@
 
-./LogAnalysis.hs,831
+./LogAnalysis.hs,773
 module LogAnalysis LogAnalysis1,2
 parse parse6,7
 parse parse7,8
@@ -21,14 +21,12 @@ inOrder inOrder42,43
 inOrder inOrder43,44
 tree2Time tree2Time45,46
 tree2Time tree2Time46,47
-onlyErrors onlyErrors49,50
-onlyErrors onlyErrors50,51
-errorsAbove errorsAbove55,56
-errorsAbove errorsAbove56,57
-sortByTimeGetText sortByTimeGetText62,63
-sortByTimeGetText sortByTimeGetText63,64
-whatWentWrong whatWentWrong69,70
-whatWentWrong whatWentWrong70,71
+errorsAbove errorsAbove49,50
+errorsAbove errorsAbove50,51
+sortByTimeGetText sortByTimeGetText59,60
+sortByTimeGetText sortByTimeGetText60,61
+whatWentWrong whatWentWrong66,67
+whatWentWrong whatWentWrong67,68
 
 ./hw1.hs,72
 type Peg Peg3,4
