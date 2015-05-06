@@ -20,6 +20,10 @@ string2Log ("I":y:zs) = LogMessage Info (read y) (unwords zs)
 string2Log ("W":y:zs) = LogMessage Warning (read y) (unwords zs)
 string2Log _ = Unknown "random"
 
+build :: [LogMessage] -> MessageTree -- checks out
+build (x:xs) = insert x (build xs)
+build [] = (Leaf)
+
 insert :: LogMessage -> MessageTree -> MessageTree -- checks out
 insert x (Node z y w)
   | (log2Time x) > (log2Time y) = (Node z y (insert x w))
@@ -32,19 +36,9 @@ log2Time :: LogMessage -> TimeStamp
 log2Time (LogMessage _ n _) = n
 log2Time (Unknown _) = 0
 
-build :: [LogMessage] -> MessageTree -- checks out
-build (x:xs) = insert x (build xs)
-build [] = (Leaf)
-
-
 inOrder :: MessageTree -> [LogMessage]
 inOrder (Node m n o) = (inOrder m) ++ [n] ++ (inOrder o)
 inOrder (Leaf) = []
-
-
-tree2Time :: MessageTree -> TimeStamp
-tree2Time (Node _ n _) = log2Time n
-tree2Time (Leaf) = 0
 
 errorsAbove :: [LogMessage] -> [LogMessage]
 errorsAbove ((LogMessage (Error x) y z):ls)
