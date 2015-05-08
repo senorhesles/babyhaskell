@@ -1,5 +1,8 @@
 
-module Golf where
+
+
+import Data.List
+
 
 
 skip :: Int -> [a] -> [a]
@@ -33,3 +36,15 @@ localMaxima = reduceD . filter (not . null) . map compareD . rightList
 reduceD :: [[Integer]] -> [Integer]
 reduceD (x:xs) = x ++ (reduceD xs)
 reduceD _ = []
+
+histogram :: [Integer] -> [(Integer, Int)]
+histogram xs =
+  let
+    y = group . sort $ xs
+    l = map length y
+    u = reduceD . map (take 1) $ y
+    z = zip u l
+  in
+   z
+    
+
