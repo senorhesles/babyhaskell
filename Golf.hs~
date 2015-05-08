@@ -1,0 +1,18 @@
+
+module Golf where
+
+
+skip :: Int -> [a] -> [a]
+skip n xs = (map snd . filter (\x -> mod (fst x) n == 0) . zip [1..]) xs
+
+skips :: [a] -> [[a]]
+skips xs = zipWith ($) (map skip [1..]) (replicate (length xs) xs)
+
+noBeg :: [(Integer, Integer)] -> [(Integer, Integer)]
+noBeg xs = filter (\x -> fst x /= (minimum (map fst xs))) xs
+
+noEnd :: [(Integer, Integer)] -> [(Integer, Integer)]
+noEnd xs = filter (\x -> fst x /= (maximum (map fst xs))) xs
+
+noBegEnd :: [(Integer, Integer)] -> [(Integer, Integer)]
+noBegEnd xs = noBeg . noEnd $ xs

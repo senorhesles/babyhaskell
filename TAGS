@@ -1,5 +1,5 @@
 
-./LogAnalysis.hs,719
+./LogAnalysis.hs,665
 module LogAnalysis LogAnalysis1,2
 parse parse6,7
 parse parse7,8
@@ -9,22 +9,41 @@ parseMessage parseMessage13,14
 parseMessage parseMessage14,15
 string2Log string2Log16,17
 string2Log string2Log17,18
-insert insert22,23
-insert insert23,24
-log2Time log2Time30,31
-log2Time log2Time31,32
-build build34,35
-build build35,36
+build build22,23
+build build23,24
+insert insert26,27
+insert insert27,28
+log2Time log2Time34,35
+log2Time log2Time35,36
+inOrder inOrder38,39
 inOrder inOrder39,40
-inOrder inOrder40,41
-tree2Time tree2Time44,45
-tree2Time tree2Time45,46
-errorsAbove errorsAbove48,49
-errorsAbove errorsAbove49,50
-sortByTimeGetText sortByTimeGetText59,60
-sortByTimeGetText sortByTimeGetText60,61
-whatWentWrong whatWentWrong66,67
-whatWentWrong whatWentWrong67,68
+errorsAbove errorsAbove42,43
+errorsAbove errorsAbove43,44
+sortByTimeGetText sortByTimeGetText53,54
+sortByTimeGetText sortByTimeGetText54,55
+whatWentWrong whatWentWrong60,61
+whatWentWrong whatWentWrong61,62
+
+./Golf.hs,424
+module Golf Golf1,2
+skip skip4,5
+skip skip5,6
+skips skips7,8
+skips skips8,9
+noBeg noBeg10,11
+noBeg noBeg11,12
+noEnd noEnd13,14
+noEnd noEnd14,15
+noBegEnd noBegEnd16,17
+noBegEnd noBegEnd17,18
+rightList rightList19,20
+rightList rightList20,21
+compareD compareD23,24
+compareD compareD24,25
+localMaxima localMaxima29,30
+localMaxima localMaxima30,31
+reduceD reduceD32,33
+reduceD reduceD33,34
 
 ./hw1.hs,72
 type Peg Peg3,4
@@ -95,6 +114,32 @@ type TimeStamp TimeStamp117,118
 data LogMessage LogMessage119,120
 data LogMessage = LogMessage LogMessage119,120
 data LogMessage = LogMessage MessageType TimeStamp String | Unknown Unknown119,120
+
+./hw3.hs,576
+data IntList IntList1,2
+data IntList = Empty Empty1,2
+data IntList = Empty | Cons Cons1,2
+absAll absAll3,4
+absAll absAll4,5
+squareAll squareAll7,8
+squareAll squareAll8,9
+keepOnlyEven keepOnlyEven11,12
+keepOnlyEven keepOnlyEven12,13
+exampleList exampleList17,18
+addOne addOne19,20
+square square20,21
+data List List22,23
+data List t = E E22,23
+data List t = E | C C22,23
+lst1 lst124,25
+lst1 lst125,26
+lst2 lst227,28
+lst2 lst228,29
+lst3 lst330,31
+lst3 lst331,32
+filterList filterList33,34
+mapList mapList38,39
+mapList mapList39,40
 
 ./cheatsheet.hs,1798
 doubleMe doubleMe3,4
