@@ -56,5 +56,5 @@ The third guard acts as a balance to the second guard. It simply states that whe
 
 The last guard, which applies *a* to right daughter, occurs only when applying *a* to left daughter would increase its depth when the depth of the two daughters was equal, filling in the holes on the right side. This ensures that that any two branches remain balanced.
 
+JMJ
 -}
-
