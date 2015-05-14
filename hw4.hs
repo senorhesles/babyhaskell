@@ -19,6 +19,21 @@ inTree a (Node x y z u)
   | ((treeToDep y) < (treeToDep u)) = (Node ((treeToDep (inTree a y)) + 1) (inTree a y) z u)
   | otherwise = (Node ((treeToDep (inTree a u)) + 1) y z (inTree a u))
 
+xor :: [Bool] -> Bool
+xor = findThing True
+
+xor' :: [Bool] -> Bool
+xor' = foldr (\x y -> if (y == False) then x else (not x)) False
+
+findThing :: (Eq a) => a -> [a] -> Bool
+findThing n xs
+  | odd $ length $ filter (== n) xs = True
+  | otherwise = False
+
+boolToInt :: Bool -> Int
+boolToInt x
+  | x == False = 0
+  | otherwise = 1
 {-
 
 The way the preceding program works is like this:
@@ -42,3 +57,4 @@ The third guard acts as a balance to the second guard. It simply states that whe
 The last guard, which applies *a* to right daughter, occurs only when applying *a* to left daughter would increase its depth when the depth of the two daughters was equal, filling in the holes on the right side. This ensures that that any two branches remain balanced.
 
 -}
+

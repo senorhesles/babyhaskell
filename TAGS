@@ -181,7 +181,7 @@ hanoi hanoi30,31
 hanoi2 hanoi234,35
 hanoi2 hanoi235,36
 
-./hw4.hs,224
+./hw4.hs,396
 data Tree Tree3,4
 data Tree a = Leaf Leaf3,4
 data Tree a = Leaf | Node Node3,4
@@ -191,6 +191,14 @@ treeToDep treeToDep8,9
 treeToDep treeToDep9,10
 inTree inTree13,14
 inTree inTree14,15
+xor xor21,22
+xor xor22,23
+xor' xor'24,25
+xor' xor'25,26
+findThing findThing27,28
+findThing findThing28,29
+boolToInt boolToInt32,33
+boolToInt boolToInt33,34
 
 ./cheatsheet.hs,1798
 doubleMe doubleMe3,4
