@@ -181,18 +181,16 @@ hanoi hanoi30,31
 hanoi2 hanoi234,35
 hanoi2 hanoi235,36
 
-./hw4.hs,374
+./hw4.hs,224
 data Tree Tree3,4
 data Tree a = Leaf Leaf3,4
 data Tree a = Leaf | Node Node3,4
---foldTree --foldTree5,6
---foldTree --foldTree6,7
-foldTreeInterMediary foldTreeInterMediary8,9
-foldTreeInterMediary foldTreeInterMediary9,10
-insertEquivalent insertEquivalent11,12
-insertEquivalent insertEquivalent12,13
-tree2Depth tree2Depth19,20
-tree2Depth tree2Depth20,21
+foldTree foldTree5,6
+foldTree foldTree6,7
+treeToDep treeToDep8,9
+treeToDep treeToDep9,10
+inTree inTree13,14
+inTree inTree14,15
 
 ./cheatsheet.hs,1798
 doubleMe doubleMe3,4
