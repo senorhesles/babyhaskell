@@ -1,22 +1,88 @@
 
-./Log.hs,663
-module Log Log2,3
-data LogMessage LogMessage6,7
-data LogMessage = LogMessage LogMessage6,7
-data LogMessage = LogMessage MessageType TimeStamp String | Unknown Unknown6,7
-data MessageType MessageType8,9
-data MessageType = Info Info8,9
-data MessageType = Info | Warning Warning8,9
-data MessageType = Info | Warning | Error Error8,9
-type ErrorInt ErrorInt10,11
-type TimeStamp TimeStamp11,12
-data MessageTree MessageTree12,13
-data MessageTree = Leaf Leaf12,13
-data MessageTree = Leaf | Node Node12,13
-testParse testParse16,17
-testParse testParse17,18
-testWhatWentWrong testWhatWentWrong22,23
-testWhatWentWrong testWhatWentWrong23,24
+./Calc.hs,556
+newtype MinMax MinMax8,9
+newtype MinMax = MinMax MinMax8,9
+newtype Mod7 Mod710,11
+newtype Mod7 = Mod7 Mod710,11
+class Expr Expr13,14
+class Expr Expr13,14
+  mul mul14,15
+  add add15,16
+  lit lit16,17
+instance instance19,20
+testExp testExp44,45
+testExp testExp45,46
+testInteger testInteger47,48
+testBool testBool48,49
+testMM testMM49,50
+testSat testSat50,51
+reify reify53,54
+reify reify54,55
+eval eval56,57
+eval eval57,58
+justEval justEval61,62
+justEval justEval62,63
+evalStr evalStr66,67
+evalStr evalStr67,68
+
+./LogAnalysis.hs,665
+module LogAnalysis LogAnalysis1,2
+parse parse6,7
+parse parse7,8
+strList2LogList strList2LogList9,10
+strList2LogList strList2LogList10,11
+parseMessage parseMessage13,14
+parseMessage parseMessage14,15
+string2Log string2Log16,17
+string2Log string2Log17,18
+build build22,23
+build build23,24
+insert insert26,27
+insert insert27,28
+log2Time log2Time34,35
+log2Time log2Time35,36
+inOrder inOrder38,39
+inOrder inOrder39,40
+errorsAbove errorsAbove42,43
+errorsAbove errorsAbove43,44
+sortByTimeGetText sortByTimeGetText53,54
+sortByTimeGetText sortByTimeGetText54,55
+whatWentWrong whatWentWrong60,61
+whatWentWrong whatWentWrong61,62
+
+./Golf.hs,460
+skip skip7,8
+skip skip8,9
+skips skips10,11
+skips skips11,12
+noBeg noBeg13,14
+noBeg noBeg14,15
+noEnd noEnd16,17
+noEnd noEnd17,18
+noBegEnd noBegEnd19,20
+noBegEnd noBegEnd20,21
+rightList rightList22,23
+rightList rightList23,24
+compareD compareD26,27
+compareD compareD27,28
+localMaxima localMaxima32,33
+localMaxima localMaxima33,34
+reduceD reduceD35,36
+reduceD reduceD36,37
+histogram histogram39,40
+histogram histogram40,41
+
+./hw1.hs,72
+type Peg Peg3,4
+type Move Move4,5
+hanoi hanoi6,7
+hanoi hanoi7,8
+
+./ExprT.hs,100
+data ExprT ExprT2,3
+data ExprT = Lit Lit2,3
+           | Add Add3,4
+           | Mul Mul4,5
 
 ./hw2.hs,1844
 data Friend Friend3,4
@@ -82,59 +148,6 @@ data LogMessage LogMessage119,120
 data LogMessage = LogMessage LogMessage119,120
 data LogMessage = LogMessage MessageType TimeStamp String | Unknown Unknown119,120
 
-./Golf.hs,460
-skip skip7,8
-skip skip8,9
-skips skips10,11
-skips skips11,12
-noBeg noBeg13,14
-noBeg noBeg14,15
-noEnd noEnd16,17
-noEnd noEnd17,18
-noBegEnd noBegEnd19,20
-noBegEnd noBegEnd20,21
-rightList rightList22,23
-rightList rightList23,24
-compareD compareD26,27
-compareD compareD27,28
-localMaxima localMaxima32,33
-localMaxima localMaxima33,34
-reduceD reduceD35,36
-reduceD reduceD36,37
-histogram histogram39,40
-histogram histogram40,41
-
-./hw1.hs,72
-type Peg Peg3,4
-type Move Move4,5
-hanoi hanoi6,7
-hanoi hanoi7,8
-
-./LogAnalysis.hs,665
-module LogAnalysis LogAnalysis1,2
-parse parse6,7
-parse parse7,8
-strList2LogList strList2LogList9,10
-strList2LogList strList2LogList10,11
-parseMessage parseMessage13,14
-parseMessage parseMessage14,15
-string2Log string2Log16,17
-string2Log string2Log17,18
-build build22,23
-build build23,24
-insert insert26,27
-insert insert27,28
-log2Time log2Time34,35
-log2Time log2Time35,36
-inOrder inOrder38,39
-inOrder inOrder39,40
-errorsAbove errorsAbove42,43
-errorsAbove errorsAbove43,44
-sortByTimeGetText sortByTimeGetText53,54
-sortByTimeGetText sortByTimeGetText54,55
-whatWentWrong whatWentWrong60,61
-whatWentWrong whatWentWrong61,62
-
 ./hw3.hs,576
 data IntList IntList1,2
 data IntList = Empty Empty1,2
@@ -160,45 +173,6 @@ lst3 lst331,32
 filterList filterList33,34
 mapList mapList38,39
 mapList mapList39,40
-
-./cis194hw1.hs,479
-toDigits toDigits3,4
-toDigits toDigits4,5
-toDigitsRev:toDigitsRev8,9
-toDigitsRev toDigitsRev9,10
-doubleEveryOther doubleEveryOther11,12
-doubleEveryOther doubleEveryOther12,13
-toDigitsList toDigitsList15,16
-toDigitsList toDigitsList16,17
-sumDigits sumDigits19,20
-sumDigits sumDigits20,21
-validate validate23,24
-validate validate24,25
-type Peg Peg26,27
-type Move Move27,28
-hanoi hanoi29,30
-hanoi hanoi30,31
-hanoi2 hanoi234,35
-hanoi2 hanoi235,36
-
-./hw4.hs,396
-data Tree Tree3,4
-data Tree a = Leaf Leaf3,4
-data Tree a = Leaf | Node Node3,4
-foldTree foldTree5,6
-foldTree foldTree6,7
-treeToDep treeToDep8,9
-treeToDep treeToDep9,10
-inTree inTree13,14
-inTree inTree14,15
-xor xor21,22
-xor xor22,23
-xor' xor'24,25
-xor' xor'25,26
-findThing findThing27,28
-findThing findThing28,29
-boolToInt boolToInt32,33
-boolToInt boolToInt33,34
 
 ./cheatsheet.hs,1798
 doubleMe doubleMe3,4
@@ -278,3 +252,106 @@ sumEveryThree sumEveryThree148,149
 sumEveryThree sumEveryThree149,150
 hailstoneLen hailstoneLen155,156
 hailstoneLen hailstoneLen156,157
+
+./hw4.hs,396
+data Tree Tree3,4
+data Tree a = Leaf Leaf3,4
+data Tree a = Leaf | Node Node3,4
+foldTree foldTree5,6
+foldTree foldTree6,7
+treeToDep treeToDep8,9
+treeToDep treeToDep9,10
+inTree inTree13,14
+inTree inTree14,15
+xor xor21,22
+xor xor22,23
+xor' xor'24,25
+xor' xor'25,26
+findThing findThing27,28
+findThing findThing28,29
+boolToInt boolToInt32,33
+boolToInt boolToInt33,34
+
+./Parser.hs,717
+newtype State State13,14
+newtype State s r = State State13,14
+data Expr Expr16,17
+data Expr = Const Const16,17
+          | Add Add17,18
+          | Mul Mul18,19
+instance instance21,22
+type Parser Parser37,38
+type Parser a a37,38
+digit digit40,41
+digit digit41,42
+num num48,49
+num num49,50
+space space53,54
+space space54,55
+eatSpace eatSpace61,62
+eatSpace eatSpace62,63
+char char65,66
+char char66,67
+op op72,73
+op op73,74
+eof eof76,77
+eof eof77,78
+parseExpr parseExpr83,84
+parseExpr parseExpr84,85
+execParser execParser91,92
+execParser execParser92,93
+evalParser evalParser95,96
+evalParser evalParser96,97
+parseExp parseExp100,101
+parseExp parseExp101,102
+
+./Log.hs,663
+module Log Log2,3
+data LogMessage LogMessage6,7
+data LogMessage = LogMessage LogMessage6,7
+data LogMessage = LogMessage MessageType TimeStamp String | Unknown Unknown6,7
+data MessageType MessageType8,9
+data MessageType = Info Info8,9
+data MessageType = Info | Warning Warning8,9
+data MessageType = Info | Warning | Error Error8,9
+type ErrorInt ErrorInt10,11
+type TimeStamp TimeStamp11,12
+data MessageTree MessageTree12,13
+data MessageTree = Leaf Leaf12,13
+data MessageTree = Leaf | Node Node12,13
+testParse testParse16,17
+testParse testParse17,18
+testWhatWentWrong testWhatWentWrong22,23
+testWhatWentWrong testWhatWentWrong23,24
+
+./sieve.hs,295
+getIntegerPairs getIntegerPairs5,6
+getIntegerPairs getIntegerPairs6,7
+cartProd cartProd8,9
+cartProd cartProd9,10
+combineIntList combineIntList11,12
+combineIntList combineIntList12,13
+combineUpTo combineUpTo15,16
+combineUpTo combineUpTo16,17
+sieve sieve23,24
+sieve sieve24,25
+
+./cis194hw1.hs,479
+toDigits toDigits3,4
+toDigits toDigits4,5
+toDigitsRev:toDigitsRev8,9
+toDigitsRev toDigitsRev9,10
+doubleEveryOther doubleEveryOther11,12
+doubleEveryOther doubleEveryOther12,13
+toDigitsList toDigitsList15,16
+toDigitsList toDigitsList16,17
+sumDigits sumDigits19,20
+sumDigits sumDigits20,21
+validate validate23,24
+validate validate24,25
+type Peg Peg26,27
+type Move Move27,28
+hanoi hanoi29,30
+hanoi hanoi30,31
+hanoi2 hanoi234,35
+hanoi2 hanoi235,36
