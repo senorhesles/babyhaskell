@@ -24,7 +24,7 @@ execute execute30,31
 execute execute31,32
 test test57,58
 
-./Calc.hs,558
+./Calc.hs,771
 newtype MinMax MinMax9,10
 newtype MinMax = MinMax MinMax9,10
 newtype Mod7 Mod711,12
@@ -49,6 +49,13 @@ justEval justEval66,67
 justEval justEval67,68
 evalStr evalStr71,72
 evalStr evalStr72,73
+compile compile78,79
+--compile --compile79,80
+compile compile80,81
+exprTtoStackExp exprTtoStackExp86,87
+exprTtoStackExp exprTtoStackExp87,88
+justExp2Exp justExp2Exp93,94
+justExp2Exp justExp2Exp94,95
 
 ./LogAnalysis.hs,665
 module LogAnalysis LogAnalysis1,2
@@ -108,6 +115,18 @@ data ExprT ExprT2,3
 data ExprT = Lit Lit2,3
            | Add Add3,4
            | Mul Mul4,5
+
+./Calctest.hs,244
+newtype MinMax MinMax9,10
+newtype MinMax = MinMax MinMax9,10
+newtype Mod7 Mod711,12
+newtype Mod7 = Mod7 Mod711,12
+class Expr Expr14,15
+class Expr Expr14,15
+  mul mul15,16
+  add add16,17
+  lit lit17,18
+instance instance47,48
 
 ./hw2.hs,1844
 data Friend Friend3,4

@@ -75,3 +75,22 @@ evalStr x =
     parsed = parseExp Ex.Lit Ex.Add Ex.Mul x
   in
    justEval parsed
+
+compile :: String -> Maybe Stack.Program
+--compile x = justExp2Exp (parseExp Ex.Lit Ex.Add Ex.Mul x)
+compile x =
+  let
+    parsed = parseExp Ex.Lit Ex.Add Ex.Mul x
+  in
+   justExp2Exp parsed
+
+exprTtoStackExp :: Ex.ExprT -> [Stack.StackExp]
+exprTtoStackExp (Ex.Lit x) = [Stack.PushI x]
+exprTtoStackExp (Ex.Add (Ex.Lit x) (Ex.Lit y)) = [Stack.PushI x] ++ [Stack.PushI y] ++ [Stack.Add]
+exprTtoStackExp (Ex.Mul (Ex.Lit x) (Ex.Lit y)) = [Stack.PushI x] ++ [Stack.PushI y] ++ [Stack.Mul]
+exprTtoStackExp (Ex.Add x y) = (exprTtoStackExp x) ++ (exprTtoStackExp y) ++ [Stack.Add]
+exprTtoStackExp (Ex.Mul x y) = (exprTtoStackExp x) ++ (exprTtoStackExp y) ++ [Stack.Mul]
+
+justExp2Exp :: Maybe Ex.ExprT -> Maybe [Stack.StackExp]
+justExp2Exp Nothing = Nothing
+justExp2Exp (Just x) = Just (exprTtoStackExp x)

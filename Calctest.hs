@@ -17,7 +17,7 @@ class Expr a where
   add :: a -> a -> a
   lit :: Integer -> a
 
-  
+{-  
 instance Expr Ex.ExprT where
   mul x y = Ex.Mul x y
   add x y = Ex.Add x y
@@ -43,11 +43,16 @@ instance Expr Mod7 where
   add (Mod7 x) (Mod7 y) = Mod7 ((x + y) `mod` 7)
   mul (Mod7 x) (Mod7 y) = Mod7 ((x * y) `mod` 7)
 
+-}
+
 instance Expr Stack.Program where
-  lit x = [Stack.PushI x]
+  lit True = [Stack.PushB True]
+  lit False = [Stack.PushB False]
   add x y = x ++ y ++ [Stack.Add]
   mul x y = x ++ y ++ [Stack.Mul]
-    
+
+
+{-
 testExp :: Expr a => Maybe a
 testExp = parseExp lit add mul "(3 * -4) + 5"
 
@@ -75,3 +80,5 @@ evalStr x =
     parsed = parseExp Ex.Lit Ex.Add Ex.Mul x
   in
    justEval parsed
+
+-}
