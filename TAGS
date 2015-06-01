@@ -1,29 +1,54 @@
 
-./Calc.hs,556
-newtype MinMax MinMax8,9
-newtype MinMax = MinMax MinMax8,9
-newtype Mod7 Mod710,11
-newtype Mod7 = Mod7 Mod710,11
-class Expr Expr13,14
-class Expr Expr13,14
-  mul mul14,15
-  add add15,16
-  lit lit16,17
-instance instance19,20
-testExp testExp44,45
-testExp testExp45,46
-testInteger testInteger47,48
-testBool testBool48,49
-testMM testMM49,50
-testSat testSat50,51
-reify reify53,54
-reify reify54,55
-eval eval56,57
-eval eval57,58
-justEval justEval61,62
-justEval justEval62,63
-evalStr evalStr66,67
-evalStr evalStr67,68
+./StackVM.hs,675
+module StackVM StackVM0,1
+data StackVal StackVal4,5
+data StackVal = IVal IVal4,5
+data StackVal = IVal Integer | BVal BVal4,5
+data StackVal = IVal Integer | BVal Bool | Void Void4,5
+data StackExp StackExp7,8
+data StackExp = PushI PushI7,8
+              | PushB PushB8,9
+              | AddAdd9,10
+              | MulMul10,11
+              | AndAnd11,12
+              | OrOr12,13
+type Stack Stack15,16
+type Program Program16,17
+stackVM stackVM20,21
+stackVM stackVM21,22
+errType errType23,24
+errType errType24,25
+errUnderflow errUnderflow26,27
+errUnderflow errUnderflow27,28
+execute execute30,31
+execute execute31,32
+test test57,58
+
+./Calc.hs,558
+newtype MinMax MinMax9,10
+newtype MinMax = MinMax MinMax9,10
+newtype Mod7 Mod711,12
+newtype Mod7 = Mod7 Mod711,12
+class Expr Expr14,15
+class Expr Expr14,15
+  mul mul15,16
+  add add16,17
+  lit lit17,18
+instance instance20,21
+testExp testExp50,51
+testExp testExp51,52
+testInteger testInteger53,54
+testBool testBool54,55
+testMM testMM55,56
+testSat testSat56,57
+reify reify58,59
+reify reify59,60
+eval eval61,62
+eval eval62,63
+justEval justEval66,67
+justEval justEval67,68
+evalStr evalStr71,72
+evalStr evalStr72,73
 
 ./LogAnalysis.hs,665
 module LogAnalysis LogAnalysis1,2
