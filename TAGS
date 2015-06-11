@@ -104,6 +104,38 @@ reduceD reduceD36,37
 histogram histogram39,40
 histogram histogram40,41
 
+./Fibonacci.hs,738
+fib fib1,2
+fib fib2,3
+fibs1 fibs16,7
+fibs1 fibs17,8
+fib2 fib29,10
+fib2 fib210,11
+fibs2' fibs2'12,13
+fibs2' fibs2'13,14
+data Stream Stream16,17
+data Stream a = Cons Cons16,17
+test test18,19
+test test19,20
+streamToList streamToList21,22
+streamToList streamToList22,23
+streamRepeat streamRepeat24,25
+streamRepeat streamRepeat25,26
+streamMap streamMap27,28
+streamMap streamMap28,29
+streamToThing streamToThing30,31
+streamToThing streamToThing31,32
+streamFromSeed streamFromSeed33,34
+streamFromSeed streamFromSeed34,35
+nats nats36,37
+nats nats37,38
+natsNoZero natsNoZero39,40
+natsNoZero natsNoZero40,41
+ruler ruler42,43
+ruler ruler43,44
+--ruler' --ruler'46,47
+--ruler' --ruler'47,48
+
 ./hw1.hs,72
 type Peg Peg3,4
 type Move Move4,5
