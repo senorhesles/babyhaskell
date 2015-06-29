@@ -104,37 +104,39 @@ reduceD reduceD36,37
 histogram histogram39,40
 histogram histogram40,41
 
-./Fibonacci.hs,738
-fib fib1,2
-fib fib2,3
-fibs1 fibs16,7
-fibs1 fibs17,8
-fib2 fib29,10
-fib2 fib210,11
-fibs2' fibs2'12,13
-fibs2' fibs2'13,14
-data Stream Stream16,17
-data Stream a = Cons Cons16,17
-test test18,19
-test test19,20
-streamToList streamToList21,22
-streamToList streamToList22,23
-streamRepeat streamRepeat24,25
-streamRepeat streamRepeat25,26
-streamMap streamMap27,28
-streamMap streamMap28,29
-streamToThing streamToThing30,31
-streamToThing streamToThing31,32
+./Fibonacci.hs,845
+fib fib6,7
+fib fib7,8
+fibs1 fibs111,12
+fibs1 fibs112,13
+fib2 fib214,15
+fib2 fib215,16
+fibs2' fibs2'17,18
+fibs2' fibs2'18,19
+data Stream Stream21,22
+data Stream a = Cons Cons21,22
+streamToList streamToList23,24
+streamToList streamToList24,25
+streamRepeat streamRepeat26,27
+streamRepeat streamRepeat27,28
+streamMap streamMap29,30
+streamMap streamMap30,31
+streamFromSeed streamFromSeed32,33
 streamFromSeed streamFromSeed33,34
-streamFromSeed streamFromSeed34,35
-nats nats36,37
-nats nats37,38
-natsNoZero natsNoZero39,40
-natsNoZero natsNoZero40,41
-ruler ruler42,43
-ruler ruler43,44
---ruler' --ruler'46,47
---ruler' --ruler'47,48
+natsNoZero natsNoZero35,36
+natsNoZero natsNoZero36,37
+largestTwo largestTwo38,39
+largestTwo largestTwo39,40
+interLeaveStreams interLeaveStreams43,44
+interLeaveStreams interLeaveStreams44,45
+ruler ruler46,47
+ruler ruler47,48
+ruler' ruler'49,50
+ruler' ruler'50,51
+startRuler startRuler52,53
+startRuler startRuler53,54
+xstream xstream55,56
+xstream xstream56,57
 
 ./hw1.hs,72
 type Peg Peg3,4

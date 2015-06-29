@@ -56,5 +56,5 @@ startRuler y = interLeaveStreams (streamRepeat y) (startRuler (y+1))
 xstream :: Stream Integer
 xstream = streamFromSeed (\y -> y + 1^(y+1)) 1
 
-
-
+instance Num Stream a where
+  
