@@ -24,6 +24,20 @@ execute execute30,31
 execute execute31,32
 test test57,58
 
+./StringBufEditor.hs,37
+module Main Main0,1
+main main5,6
+
+./JoinList.hs,251
+data JoinList JoinList3,4
+data JoinList m a = EmptyEmpty3,4
+                  | Single Single4,5
+                  | Append Append5,6
+--joinListAppend --joinListAppend8,9
+--joinListAppend --joinListAppend9,10
+tag tag11,12
+tag tag12,13
+
 ./Calc.hs,771
 newtype MinMax MinMax9,10
 newtype MinMax = MinMax MinMax9,10
@@ -150,6 +164,50 @@ data ExprT = Lit Lit2,3
            | Add Add3,4
            | Mul Mul4,5
 
+./Editor.hs,1142
+data Command Command20,21
+data Command = ViewView20,21
+             | EditEdit21,22
+             | Load Load22,23
+             | Line Line23,24
+             | NextNext24,25
+             | PrevPrev25,26
+             | QuitQuit26,27
+             | HelpHelp27,28
+             | NoopNoop28,29
+commands commands31,32
+commands commands32,33
+newtype Editor Editor36,37
+newtype Editor b a = Editor Editor36,37
+runEditor runEditor39,40
+runEditor runEditor40,41
+getCurLine getCurLine42,43
+getCurLine getCurLine43,44
+setCurLine setCurLine45,46
+setCurLine setCurLine46,47
+onBuffer onBuffer48,49
+onBuffer onBuffer49,50
+getBuffer getBuffer51,52
+getBuffer getBuffer52,53
+modBuffer modBuffer54,55
+modBuffer modBuffer55,56
+io io57,58
+io io58,59
+readMay readMay62,63
+readMay readMay63,64
+editor editor69,70
+editor editor70,71
+prompt prompt75,76
+prompt prompt76,77
+getCommand getCommand80,81
+getCommand getCommand81,82
+doCommand doCommand90,91
+doCommand doCommand91,92
+inBuffer inBuffer136,137
+inBuffer inBuffer137,138
+modCurLine modCurLine141,142
+modCurLine modCurLine142,143
+
 ./Calctest.hs,244
 newtype MinMax MinMax9,10
 newtype MinMax = MinMax MinMax9,10
@@ -161,6 +219,10 @@ class Expr Expr14,15
   add add16,17
   lit lit17,18
 instance instance47,48
+
+./07-folds-monoids.lhs,47
+ data Tree Tree33,34
+ data Tree a = =33,34
 
 ./hw2.hs,1844
 data Friend Friend3,4
@@ -252,6 +314,22 @@ filterList filterList33,34
 mapList mapList38,39
 mapList mapList39,40
 
+./StringBuffer.hs,115
+module StringBuffer StringBuffer1,2
+instance instance7,8
+safeIndex safeIndex17,18
+safeIndex safeIndex18,19
+
+./Buffer.hs,206
+class Buffer Buffer5,6
+class Buffer Buffer5,6
+  toString toString8,9
+  fromString fromString11,12
+  line line15,16
+  replaceLine replaceLine20,21
+  numLines numLines23,24
+  value value27,28
+
 ./cheatsheet.hs,1798
 doubleMe doubleMe3,4
 doubleMe doubleMe4,5
@@ -330,6 +408,19 @@ sumEveryThree sumEveryThree148,149
 sumEveryThree sumEveryThree149,150
 hailstoneLen hailstoneLen155,156
 hailstoneLen hailstoneLen156,157
+
+./monoids.hs,193
+fact1 fact15,6
+fact1 fact16,7
+ex1 ex116,17
+fact2 fact219,20
+fact2 fact220,21
+ex2 ex229,30
+fact3 fact331,32
+fact3 fact332,33
+fact4 fact442,43
+fact4 fact443,44
+ex4 ex451,52
 
 ./hw4.hs,396
 data Tree Tree3,4
