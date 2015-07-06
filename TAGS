@@ -28,31 +28,23 @@ test test57,58
 module Main Main0,1
 main main5,6
 
-./JoinList.hs,550
+./JoinList.hs,398
 data JoinList JoinList8,9
 data JoinList m a = EmptyEmpty8,9
                   | Single Single9,10
                   | Append Append10,11
-test test17,18
-test test18,19
-test2 test220,21
-test2 test221,22
-test3 test329,30
-test3 test330,31
-(+++)+++32,33
-(+(33,34
-tag tag40,41
-tag tag41,42
-indexJ indexJ45,46
-indexJ indexJ46,47
-jlToList jlToList55,56
-jlToList jlToList56,57
-safeListIndex safeListIndex60,61
-safeListIndex safeListIndex61,62
-dropJ dropJ68,69
-dropJ dropJ71,72
-takeJ takeJ76,77
-takeJ takeJ78,79
+test test13,14
+test test14,15
+(+++)+++16,17
+(+(17,18
+tag tag24,25
+tag tag25,26
+indexJ indexJ29,30
+indexJ indexJ30,31
+jlToList jlToList38,39
+jlToList jlToList39,40
+safeListIndex safeListIndex43,44
+safeListIndex safeListIndex44,45
 
 ./Calc.hs,771
 newtype MinMax MinMax9,10
