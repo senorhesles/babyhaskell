@@ -28,15 +28,31 @@ test test57,58
 module Main Main0,1
 main main5,6
 
-./JoinList.hs,251
-data JoinList JoinList3,4
-data JoinList m a = EmptyEmpty3,4
-                  | Single Single4,5
-                  | Append Append5,6
---joinListAppend --joinListAppend8,9
---joinListAppend --joinListAppend9,10
-tag tag11,12
-tag tag12,13
+./JoinList.hs,550
+data JoinList JoinList8,9
+data JoinList m a = EmptyEmpty8,9
+                  | Single Single9,10
+                  | Append Append10,11
+test test17,18
+test test18,19
+test2 test220,21
+test2 test221,22
+test3 test329,30
+test3 test330,31
+(+++)+++32,33
+(+(33,34
+tag tag40,41
+tag tag41,42
+indexJ indexJ45,46
+indexJ indexJ46,47
+jlToList jlToList55,56
+jlToList jlToList56,57
+safeListIndex safeListIndex60,61
+safeListIndex safeListIndex61,62
+dropJ dropJ68,69
+dropJ dropJ71,72
+takeJ takeJ76,77
+takeJ takeJ78,79
 
 ./Calc.hs,771
 newtype MinMax MinMax9,10
@@ -473,6 +489,16 @@ evalParser evalParser95,96
 evalParser evalParser96,97
 parseExp parseExp100,101
 parseExp parseExp101,102
+
+./Sized.hs,190
+newtype Size Size5,6
+newtype Size = Size Size5,6
+getSize getSize8,9
+getSize getSize9,10
+class Sized Sized11,12
+class Sized Sized11,12
+  size size12,13
+instance instance14,15
 
 ./Log.hs,663
 module Log Log2,3
