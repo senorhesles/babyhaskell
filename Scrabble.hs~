@@ -1,0 +1,9 @@
+module Scrabble where
+
+data Score = Score Int
+
+--score :: Char -> Score
+
+--instance Monoid Score where
+  
+

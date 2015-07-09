@@ -28,23 +28,42 @@ test test57,58
 module Main Main0,1
 main main5,6
 
-./JoinList.hs,398
-data JoinList JoinList8,9
-data JoinList m a = EmptyEmpty8,9
-                  | Single Single9,10
-                  | Append Append10,11
-test test13,14
+./JoinList.hs,796
+data JoinList JoinList9,10
+data JoinList m a = EmptyEmpty9,10
+                  | Single Single10,11
+                  | Append Append11,12
 test test14,15
-(+++)+++16,17
-(+(17,18
-tag tag24,25
-tag tag25,26
-indexJ indexJ29,30
-indexJ indexJ30,31
-jlToList jlToList38,39
-jlToList jlToList39,40
-safeListIndex safeListIndex43,44
-safeListIndex safeListIndex44,45
+test test15,16
+test2 test216,17
+test2 test217,18
+test3 test318,19
+test3 test319,20
+test4 test420,21
+t6 t621,22
+t7 t722,23
+test5 test523,24
+(+++)+++25,26
+(+(26,27
+tag tag33,34
+tag tag34,35
+indexJ indexJ38,39
+indexJ indexJ39,40
+dropJ dropJ46,47
+dropJ dropJ47,48
+takeJ takeJ54,55
+takeJ takeJ55,56
+scoreLine scoreLine64,65
+scoreLine scoreLine65,66
+jlToString jlToString67,68
+jlToString jlToString68,69
+stringToJL stringToJL72,73
+stringToJL stringToJL73,74
+jlToSize jlToSize75,76
+jlToSize jlToSize76,77
+jlToScore jlToScore80,81
+jlToScore jlToScore81,82
+instance instance85,86
 
 ./Calc.hs,771
 newtype MinMax MinMax9,10
@@ -227,6 +246,10 @@ class Expr Expr14,15
   add add16,17
   lit lit17,18
 instance instance47,48
+
+./JoinListBufEditor.hs,37
+module Main Main0,1
+main main5,6
 
 ./07-folds-monoids.lhs,47
  data Tree Tree33,34
@@ -491,6 +514,18 @@ class Sized Sized11,12
 class Sized Sized11,12
   size size12,13
 instance instance14,15
+
+./Scrabble.hs,271
+module Scrabble Scrabble0,1
+data Score Score4,5
+data Score = Score Score4,5
+instance instance6,7
+addingScores addingScores10,11
+addingScores addingScores11,12
+scoreString scoreString13,14
+scoreString scoreString14,15
+score score16,17
+score score17,18
 
 ./Log.hs,663
 module Log Log2,3
