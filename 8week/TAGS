@@ -1,18 +1,18 @@
 
-./Party.hs,325
+./Party.hs,300
 module Party Party2,3
-glCons glCons8,9
-glCons glCons9,10
-moreFun moreFun11,12
-moreFun moreFun12,13
---treeFold --treeFold16,17
---treeFold --treeFold17,18
---treeFold2 --treeFold220,21
-treeFold2 treeFold221,22
---data --data24,25
-treeFun treeFun26,27
-treeFun treeFun27,28
---combineGLs --combineGLs29,30
+testCompany3 testCompany38,9
+testCompany3testCompany39,10
+glCons glCons24,25
+glCons glCons25,26
+moreFun moreFun27,28
+moreFun moreFun28,29
+--treeFold --treeFold32,33
+treeFold treeFold33,34
+treeFold3 treeFold337,38
+tF2 tF240,41
+tF3 tF345,46
+tF3 tF346,47
 
 ./OrphanGuestList.hs,124
 module OrphanGuestList OrphanGuestList0,1
