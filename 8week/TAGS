@@ -1,0 +1,48 @@
+
+./Party.hs,325
+module Party Party2,3
+glCons glCons8,9
+glCons glCons9,10
+moreFun moreFun11,12
+moreFun moreFun12,13
+--treeFold --treeFold16,17
+--treeFold --treeFold17,18
+--treeFold2 --treeFold220,21
+treeFold2 treeFold221,22
+--data --data24,25
+treeFun treeFun26,27
+treeFun treeFun27,28
+--combineGLs --combineGLs29,30
+
+./OrphanGuestList.hs,124
+module OrphanGuestList OrphanGuestList0,1
+instance instance5,6
+trueGlCons trueGlCons9,10
+trueGlCons trueGlCons10,11
+
+./Employee.hs,418
+type Name Name5,6
+type Fun Fun9,10
+data Employee Employee12,13
+data Employee = Emp Emp12,13
+data Employee = Emp { empName empName12,13
+data Employee = Emp { empName :: Name, empFun empFun12,13
+testCompany testCompany16,17
+testCompanytestCompany17,18
+testCompany2 testCompany231,32
+testCompany2testCompany232,33
+data GuestList GuestList47,48
+data GuestList = GL GL47,48
+instance instance50,51
+
+./lecture.hs,310
+--main --main0,1
+data De De27,28
+data De = Ce Ce27,28
+main main29,30
+main main30,31
+data Dee Dee40,41
+data Dee = Cee Cee40,41
+data Dee = Cee { field1 field140,41
+data Dee = Cee { field1 :: Integer, field2 field240,41
+data Dee = Cee { field1 :: Integer, field2 :: String, field3 field340,41

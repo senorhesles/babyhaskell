@@ -1,0 +1,9 @@
+module OrphanGuestList where
+
+import Data.Monoid
+import Party
+import Employee
+
+instance Monoid GuestList where
+  mempty = []
+  mappend = ++
