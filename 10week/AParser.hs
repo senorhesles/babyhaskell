@@ -31,3 +31,4 @@ instance Functor Parser where
   fmap f (Parser g) = (Parser (fmap (first f) . g))
 
 -- JMJ, please help me to understand why this works
+-- https://www.seas.upenn.edu/~cis194/spring13/hw/10-applicative.pdf
