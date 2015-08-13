@@ -2,6 +2,7 @@
 import Control.Applicative
 import Data.Char
 import Data.Maybe
+import Data.Monoid
 
 newtype Parser a = Parser { runParser :: String -> Maybe (a, String) }
 
@@ -27,17 +28,45 @@ posInt = Parser f
 first :: (a -> b) -> (a,c) -> (b,c)
 first f tuple = ((f (fst tuple)),(snd tuple))
 
+--second :: ((a -> b), c) -> (a,c) -> (b,c)
+
+
+maybeFirst :: (Maybe (a -> b)) -> Maybe (a,c) -> Maybe (b,c)
+maybeFirst Nothing _ = Nothing
+maybeFirst _ Nothing = Nothing
+maybeFirst (Just f) (Just (x,y)) = (Just ((f x),y))
+
+maybeFst :: (Maybe (a,b)) -> Maybe a
+maybeFst Nothing = Nothing
+maybeFst (Just (a,b)) = Just a
+
+maybeSnd :: (Maybe (a,b)) -> Maybe b
+maybeSnd Nothing = Nothing
+maybeSnd (Just (a,b)) = Just b
+
+maybeListReduction :: Maybe [a] -> [a]
+maybeListReduction Nothing = []
+maybeListReduction (Just [x]) = [x]
+        
+
 instance Functor Parser where
   fmap f (Parser g) = (Parser (fmap (first f) . g))
 
+--instance Functor Parser where
+--  fmap f (Parser g) = Parser (\x -> fmap (first f) (g x))
+
 instance Applicative Parser where
   pure a = Parser (\x -> Just (a, x))
-  (Parser p1) <*> (Parser p2) =
-    let
-      function = fst (Parser p1)
-      string = fmap snd (Parser p1)
-    in (Parser function (p2 string))
-      
+  (Parser f) <*> (Parser g) = Parser (\x -> (maybeFst (f x)) <*> (g (maybeListReduction (maybeSnd (f x)))))
+
+  (Parser fp) <*> xp = Parser $ \s ->
+    case fp s of
+    Nothing     -> Nothing
+    Just (f,s') -> runParser (fmap f xp) s'
+
+instance Monoid (Parser a) where
+  mempty = Parser (\x -> Nothing)
+  mappend (Parser a) (Parser b) = undefined
 
 -- (first p1) takes as inputs tuples
 
