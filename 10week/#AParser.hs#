@@ -27,16 +27,15 @@ posInt = Parser f
 first :: (a -> b) -> (a,c) -> (b,c)
 first f tuple = ((f (fst tuple)),(snd tuple))
 
+second :: (String -> (Maybe (a -> b), String)) -> (Maybe (a, String)) -> (Maybe b, String)
+second  f tuple = 
+
 instance Functor Parser where
   fmap f (Parser g) = (Parser (fmap (first f) . g))
 
 instance Applicative Parser where
   pure a = Parser (\x -> Just (a, x))
   (Parser p1) <*> (Parser p2) =
-    let
-      function = fst (Parser p1)
-      string = fmap snd (Parser p1)
-    in (Parser function (p2 string))
       
 
 -- (first p1) takes as inputs tuples

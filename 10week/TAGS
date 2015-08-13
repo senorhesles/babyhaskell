@@ -1,5 +1,5 @@
 
-./AParser.hs,299
+./AParser.hs,761
 newtype Parser Parser5,6
 newtype Parser a = Parser Parser5,6
 newtype Parser a = Parser { runParser runParser5,6
@@ -12,3 +12,20 @@ posInt posInt19,20
 first first26,27
 first first27,28
 instance instance29,30
+type Name Name43,44
+data Employee Employee45,46
+data Employee = Employee Employee45,46
+data Employee = Employee { name name45,46
+                         , phone phone46,47
+m_name1, m_name2 m_name249,50
+m_name1,m_name149,50
+m_name1 m_name150,51
+m_name2 m_name251,52
+m_phone1, m_phone2 m_phone253,54
+m_phone1,m_phone153,54
+m_phone1 m_phone154,55
+m_phone2 m_phone255,56
+ex01 ex0157,58
+ex02 ex0258,59
+ex03 ex0359,60
+ex04 ex0460,61
