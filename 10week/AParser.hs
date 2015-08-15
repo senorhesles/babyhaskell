@@ -28,47 +28,8 @@ posInt = Parser f
 first :: (a -> b) -> (a,c) -> (b,c)
 first f tuple = ((f (fst tuple)),(snd tuple))
 
---second :: ((a -> b), c) -> (a,c) -> (b,c)
-
-
-maybeFirst :: (Maybe (a -> b)) -> Maybe (a,c) -> Maybe (b,c)
-maybeFirst Nothing _ = Nothing
-maybeFirst _ Nothing = Nothing
-maybeFirst (Just f) (Just (x,y)) = (Just ((f x),y))
-
-maybeFst :: (Maybe (a,b)) -> Maybe a
-maybeFst Nothing = Nothing
-maybeFst (Just (a,b)) = Just a
-
-maybeSnd :: (Maybe (a,b)) -> Maybe b
-maybeSnd Nothing = Nothing
-maybeSnd (Just (a,b)) = Just b
-
-maybeListReduction :: Maybe [a] -> [a]
-maybeListReduction Nothing = []
-maybeListReduction (Just [x]) = [x]
-        
-
 instance Functor Parser where
   fmap f (Parser g) = (Parser (fmap (first f) . g))
-
---instance Functor Parser where
---  fmap f (Parser g) = Parser (\x -> fmap (first f) (g x))
-
-instance Applicative Parser where
-  pure a = Parser (\x -> Just (a, x))
-  (Parser f) <*> (Parser g) = Parser (\x -> (maybeFst (f x)) <*> (g (maybeListReduction (maybeSnd (f x)))))
-
-  (Parser fp) <*> xp = Parser $ \s ->
-    case fp s of
-    Nothing     -> Nothing
-    Just (f,s') -> runParser (fmap f xp) s'
-
-instance Monoid (Parser a) where
-  mempty = Parser (\x -> Nothing)
-  mappend (Parser a) (Parser b) = undefined
-
--- (first p1) takes as inputs tuples
 
 type Name = String
 
@@ -93,3 +54,21 @@ ex04 = (Employee <$> m_name2) <*> m_phone2
 -- JMJ, please help me to understand why this works
 -- https://www.seas.upenn.edu/~cis194/spring13/hw/10-applicative.pdf
 
+
+instance Applicative Parser where
+  pure a = (Parser (\x -> Just (a, x)))
+  (Parser f) <*> (Parser g) = Parser $ \x ->
+    case f x of
+    Nothing -> Nothing
+    Just (function, x') -> runParser (fmap function (Parser g)) x' -- ok this is cool as hell, you can instroduce entirely new stuff
+
+{-
+instance Applicative Parser where
+    -- a -> Parser a
+  pure a = Parser (\s -> Just (a, s))
+  -- Parser (p1 -> p2) -> Parser p1 -> Parser p2
+  (Parser fp) <*> xp = Parser $ \s ->
+    case fp s of
+    Nothing     -> Nothing
+    Just (f,s') -> runParser (fmap f xp) s'
+-}

@@ -1,5 +1,5 @@
 
-./AParser.hs,1035
+./AParser.hs,762
 newtype Parser Parser6,7
 newtype Parser a = Parser Parser6,7
 newtype Parser a = Parser { runParser runParser6,7
@@ -11,30 +11,21 @@ posInt posInt19,20
 posInt posInt20,21
 first first27,28
 first first28,29
---second --second30,31
-maybeFirst maybeFirst33,34
-maybeFirst maybeFirst34,35
-maybeFst maybeFst38,39
-maybeFst maybeFst39,40
-maybeSnd maybeSnd42,43
-maybeSnd maybeSnd43,44
-maybeListReduction maybeListReduction46,47
-maybeListReduction maybeListReduction47,48
-instance instance51,52
-type Name Name72,73
-data Employee Employee74,75
-data Employee = Employee Employee74,75
-data Employee = Employee { name name74,75
-                         , phone phone75,76
-m_name1, m_name2 m_name278,79
-m_name1,m_name178,79
-m_name1 m_name179,80
-m_name2 m_name280,81
-m_phone1, m_phone2 m_phone282,83
-m_phone1,m_phone182,83
-m_phone1 m_phone183,84
-m_phone2 m_phone284,85
-ex01 ex0186,87
-ex02 ex0287,88
-ex03 ex0388,89
-ex04 ex0489,90
+instance instance30,31
+type Name Name33,34
+data Employee Employee35,36
+data Employee = Employee Employee35,36
+data Employee = Employee { name name35,36
+                         , phone phone36,37
+m_name1, m_name2 m_name239,40
+m_name1,m_name139,40
+m_name1 m_name140,41
+m_name2 m_name241,42
+m_phone1, m_phone2 m_phone243,44
+m_phone1,m_phone143,44
+m_phone1 m_phone144,45
+m_phone2 m_phone245,46
+ex01 ex0147,48
+ex02 ex0248,49
+ex03 ex0349,50
+ex04 ex0450,51
