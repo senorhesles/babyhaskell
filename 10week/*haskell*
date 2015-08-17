@@ -1,0 +1,172 @@
+The next big Haskell project is about to start!
+If I break, you can:
+  1. Restart:           M-x haskell-process-restart
+  2. Configure logging: C-h v haskell-process-log (useful for debugging)
+  3. General config:    M-x customize-mode
+  4. Hide these tips:   C-h v haskell-process-show-debug-tips
+λ> 2 * 3
+6
+λ> head [1,2,3,43]
+1
+λ> tail [1,2,3,4]
+[2,3,4]
+λ> map (*3) [1,2,3,4]
+[3,6,9,12]
+λ> foldl1 (+) [1,2,3,4]
+10
+λ> foldl1 (-) [1,2,3,4]
+-8
+λ> foldr1 (-) [1,2,3,4]
+-2
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:68:22:
+    Not in scope: type constructor or class ‘Strings’
+    Perhaps you meant ‘String’ (imported from Prelude)
+
+/home/mario/babyhaskell/10week/AParser.hs:68:33:
+    Not in scope: type constructor or class ‘Integers’
+    Perhaps you meant ‘Integer’ (imported from Prelude)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:68:32:
+    Not in scope: type constructor or class ‘Integers’
+    Perhaps you meant ‘Integer’ (imported from Prelude)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> fromStringsToInts "5"
+5
+λ> fromStringsToInts "4"
+4
+λ> fromStringsToInts "34"
+0
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:77:28:
+    Couldn't match type ‘Char’ with ‘Integer’
+    Expected type: [Integer]
+      Actual type: String
+    In the first argument of ‘head’, namely ‘xs’
+    In the first argument of ‘Just’, namely ‘(head xs)’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:77:28:
+    Couldn't match type ‘Char’ with ‘Integer’
+    Expected type: [Integer]
+      Actual type: String
+    In the first argument of ‘head’, namely ‘xs’
+    In the first argument of ‘Just’, namely ‘(head xs)’
+Failed, modules loaded: none.
+λ> head "5 4"
+'5'
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> span isDigit "5 4 3"
+("5"," 4 3")
+λ> read "5"
+*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:84:41:
+    parse error on input ‘)’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> runParser posInt "5 4 3"
+Just (5," 4 3")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser parseInt "5 4 3"
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser parseInt "5 4 3"
+Just (5," 4 3")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:19:
+    Couldn't match type ‘[a0]’ with ‘Integer’
+    Expected type: String -> Maybe (Integer, String)
+      Actual type: [Char] -> Maybe ([a0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:19:
+    No instance for (Read a) arising from a use of ‘f’
+    Possible fix:
+      add (Read a) to the context of
+        the type signature for parseInt :: Parser [a]
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+    In an equation for ‘parseInt’:
+        parseInt
+          = Parser f
+          where
+              f xs
+                | null ns = Nothing
+                | otherwise = Just ((read ns) ++ [], rest)
+                where
+                    (ns, rest) = span isDigit xs
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:79:13:
+    Illegal constraint: read a (Use ConstraintKinds to permit this)
+    In the type signature for ‘parseInt’:
+      parseInt :: read a => Parser [a]
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:79:24:
+    parse error on input ‘deriving’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser parseInt "5 4 3"

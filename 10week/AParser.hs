@@ -17,14 +17,6 @@ satisfy p = Parser f
 char :: Char -> Parser Char
 char c = satisfy (== c)
 
-posInt :: Parser Integer
-posInt = Parser f
-  where
-    f xs
-      | null ns = Nothing
-      | otherwise = Just (read ns, rest)
-      where (ns, rest) = span isDigit xs
-
 first :: (a -> b) -> (a,c) -> (b,c)
 first f tuple = ((f (fst tuple)),(snd tuple))
 
@@ -60,15 +52,38 @@ instance Applicative Parser where
   (Parser f) <*> (Parser g) = Parser $ \x ->
     case f x of
     Nothing -> Nothing
-    Just (function, x') -> runParser (fmap function (Parser g)) x' -- ok this is cool as hell, you can instroduce entirely new stuff
+    Just (function, x') -> runParser (fmap function (Parser g)) x' -- ok this is cool as hell, you can introduce entirely new stuff
 
-{-
-instance Applicative Parser where
-    -- a -> Parser a
-  pure a = Parser (\s -> Just (a, s))
-  -- Parser (p1 -> p2) -> Parser p1 -> Parser p2
-  (Parser fp) <*> xp = Parser $ \s ->
-    case fp s of
-    Nothing     -> Nothing
-    Just (f,s') -> runParser (fmap f xp) s'
--}
+posInt :: Parser Integer
+posInt = Parser f
+  where
+    f xs
+      | null ns = Nothing
+      | otherwise = Just (read ns, rest)
+      where (ns, rest) = span isDigit xs
+
+abParser :: Parser (Char,Char)
+abParser = Parser f
+  where
+    f (x:y:xs)
+      | (x == 'a') && (y == 'b') = Just ((x,y), xs)
+      | otherwise = Nothing
+
+abParser_ :: Parser ()
+abParser_ = Parser f
+  where
+    f (x:y:xs)
+      | (x == 'a') && (y == 'b') = Just ((), xs)
+      | otherwise = Nothing
+
+abParser1 :: Parser (Char,Char)
+abParser1 = (\x y -> (x,y)) <$> char 'a' <*> char 'b'
+
+abParser_1 :: Parser ()
+abParser_1 = (\x y -> ()) <$> char 'a' <*> char 'b'
+
+intPair :: Parser [Integer]
+intPair = (\x _ y -> [x, y]) <$> posInt <*> char ' ' <*> posInt
+
+-- Exercise 4
+

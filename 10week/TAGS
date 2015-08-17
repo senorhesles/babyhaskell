@@ -1,5 +1,5 @@
 
-./AParser.hs,762
+./AParser.hs,1024
 newtype Parser Parser6,7
 newtype Parser a = Parser Parser6,7
 newtype Parser a = Parser { runParser runParser6,7
@@ -7,25 +7,35 @@ satisfy satisfy8,9
 satisfy satisfy9,10
 char char16,17
 char char17,18
-posInt posInt19,20
-posInt posInt20,21
-first first27,28
-first first28,29
-instance instance30,31
-type Name Name33,34
-data Employee Employee35,36
-data Employee = Employee Employee35,36
-data Employee = Employee { name name35,36
-                         , phone phone36,37
-m_name1, m_name2 m_name239,40
-m_name1,m_name139,40
-m_name1 m_name140,41
-m_name2 m_name241,42
-m_phone1, m_phone2 m_phone243,44
-m_phone1,m_phone143,44
-m_phone1 m_phone144,45
-m_phone2 m_phone245,46
-ex01 ex0147,48
-ex02 ex0248,49
-ex03 ex0349,50
-ex04 ex0450,51
+first first19,20
+first first20,21
+instance instance22,23
+type Name Name25,26
+data Employee Employee27,28
+data Employee = Employee Employee27,28
+data Employee = Employee { name name27,28
+                         , phone phone28,29
+m_name1, m_name2 m_name231,32
+m_name1,m_name131,32
+m_name1 m_name132,33
+m_name2 m_name233,34
+m_phone1, m_phone2 m_phone235,36
+m_phone1,m_phone135,36
+m_phone1 m_phone136,37
+m_phone2 m_phone237,38
+ex01 ex0139,40
+ex02 ex0240,41
+ex03 ex0341,42
+ex04 ex0442,43
+posInt posInt56,57
+posInt posInt57,58
+abParser abParser64,65
+abParser abParser65,66
+abParser_ abParser_71,72
+abParser_ abParser_72,73
+abParser1 abParser178,79
+abParser1 abParser179,80
+abParser_1 abParser_181,82
+abParser_1 abParser_182,83
+intPair intPair84,85
+intPair intPair85,86

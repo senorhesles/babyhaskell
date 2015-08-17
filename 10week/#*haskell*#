@@ -1,0 +1,848 @@
+The next big Haskell project is about to start!
+If I break, you can:
+  1. Restart:           M-x haskell-process-restart
+  2. Configure logging: C-h v haskell-process-log (useful for debugging)
+  3. General config:    M-x customize-mode
+  4. Hide these tips:   C-h v haskell-process-show-debug-tips
+λ> 2 * 3
+6
+λ> head [1,2,3,43]
+1
+λ> tail [1,2,3,4]
+[2,3,4]
+λ> map (*3) [1,2,3,4]
+[3,6,9,12]
+λ> foldl1 (+) [1,2,3,4]
+10
+λ> foldl1 (-) [1,2,3,4]
+-8
+λ> foldr1 (-) [1,2,3,4]
+-2
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:68:22:
+    Not in scope: type constructor or class ‘Strings’
+    Perhaps you meant ‘String’ (imported from Prelude)
+
+/home/mario/babyhaskell/10week/AParser.hs:68:33:
+    Not in scope: type constructor or class ‘Integers’
+    Perhaps you meant ‘Integer’ (imported from Prelude)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:68:32:
+    Not in scope: type constructor or class ‘Integers’
+    Perhaps you meant ‘Integer’ (imported from Prelude)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> fromStringsToInts "5"
+5
+λ> fromStringsToInts "4"
+4
+λ> fromStringsToInts "34"
+0
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:77:28:
+    Couldn't match type ‘Char’ with ‘Integer’
+    Expected type: [Integer]
+      Actual type: String
+    In the first argument of ‘head’, namely ‘xs’
+    In the first argument of ‘Just’, namely ‘(head xs)’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:77:28:
+    Couldn't match type ‘Char’ with ‘Integer’
+    Expected type: [Integer]
+      Actual type: String
+    In the first argument of ‘head’, namely ‘xs’
+    In the first argument of ‘Just’, namely ‘(head xs)’
+Failed, modules loaded: none.
+λ> head "5 4"
+'5'
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> span isDigit "5 4 3"
+("5"," 4 3")
+λ> read "5"
+*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:84:41:
+    parse error on input ‘)’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> runParser posInt "5 4 3"
+Just (5," 4 3")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser parseInt "5 4 3"
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser parseInt "5 4 3"
+Just (5," 4 3")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:19:
+    Couldn't match type ‘[a0]’ with ‘Integer’
+    Expected type: String -> Maybe (Integer, String)
+      Actual type: [Char] -> Maybe ([a0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:19:
+    No instance for (Read a) arising from a use of ‘f’
+    Possible fix:
+      add (Read a) to the context of
+        the type signature for parseInt :: Parser [a]
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+    In an equation for ‘parseInt’:
+        parseInt
+          = Parser f
+          where
+              f xs
+                | null ns = Nothing
+                | otherwise = Just ((read ns) ++ [], rest)
+                where
+                    (ns, rest) = span isDigit xs
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:79:13:
+    Illegal constraint: read a (Use ConstraintKinds to permit this)
+    In the type signature for ‘parseInt’:
+      parseInt :: read a => Parser [a]
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:79:24:
+    parse error on input ‘deriving’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (*** Exception: Prelude.read: no parse
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser parseInt "5 4 3"
+Just ([5]," 4 3")
+λ> runParser posInt "5 4 3"
+Just (5," 4 3")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:83:28:
+    parse error on input ‘,’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:22:
+    Couldn't match type ‘Char’ with ‘[Char]’
+    Expected type: String -> Maybe (String, String)
+      Actual type: [Char] -> Maybe (Char, [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:22:
+    Couldn't match type ‘Char’ with ‘[Char]’
+    Expected type: String -> Maybe ([Char], String)
+      Actual type: [Char] -> Maybe (Char, [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:22:
+    Couldn't match type ‘[Char]’ with ‘Char’
+    Expected type: String -> Maybe (Char, String)
+      Actual type: [Char] -> Maybe ([Char], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> 
+Just (' ',"5 4")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:21:
+    Couldn't match type ‘[t0]’ with ‘Char’
+    Expected type: String -> Maybe (Char, String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser parseSpace " 5 4"
+Just ([],"5 4")
+λ> :t isDigit
+isDigit :: Char -> Bool
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:1:
+    parse error (possibly incorrect indentation or mismatched brackets)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:19:
+    Couldn't match type ‘[t0]’ with ‘Integer -> [Integer]’
+    Expected type: String -> Maybe (Integer -> [Integer], String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:19:
+    Couldn't match type ‘[t0]’ with ‘Integer -> [Integer]’
+    Expected type: String -> Maybe (Integer -> [Integer], String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (parseInt <*> posInt) "5 4"
+Just ([5]," 4")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:95:12:
+    Couldn't match expected type ‘[a]’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for toList :: a -> [a]
+          at /home/mario/babyhaskell/10week/AParser.hs:94:11
+    Relevant bindings include
+      x :: a (bound at /home/mario/babyhaskell/10week/AParser.hs:95:8)
+      toList :: a -> [a]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:95:1)
+    In the first argument of ‘(++)’, namely ‘x’
+    In the expression: x ++ []
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:95:13:
+    Couldn't match expected type ‘[a]’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for toList :: a -> [a]
+          at /home/mario/babyhaskell/10week/AParser.hs:94:11
+    Relevant bindings include
+      x :: a (bound at /home/mario/babyhaskell/10week/AParser.hs:95:8)
+      toList :: a -> [a]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:95:1)
+    In the first argument of ‘(++)’, namely ‘x’
+    In the expression: (x ++ [])
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> head " hello"
+' '
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:19:
+    Couldn't match type ‘[t0]’ with ‘Integer -> [Integer]’
+    Expected type: String -> Maybe (Integer -> [Integer], String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+
+/home/mario/babyhaskell/10week/AParser.hs:92:27:
+    Couldn't match expected type ‘[t]’ with actual type ‘a0 -> [a0]’
+    Relevant bindings include
+      f :: [Char] -> Maybe ([t], [Char])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:5)
+    Probable cause: ‘toList’ is applied to too few arguments
+    In the expression: toList
+    In the first argument of ‘Just’, namely ‘(toList, xs)’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:19:
+    Couldn't match type ‘[t0]’ with ‘Integer -> [Integer]’
+    Expected type: String -> Maybe (Integer -> [Integer], String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+
+/home/mario/babyhaskell/10week/AParser.hs:91:9:
+    Couldn't match expected type ‘a -> Bool’ with actual type ‘Bool’
+    Relevant bindings include
+      xs :: [a] (bound at /home/mario/babyhaskell/10week/AParser.hs:89:7)
+      f :: [a] -> Maybe ([t], [a])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:5)
+    The function ‘not’ is applied to two arguments,
+    but its type ‘Bool -> Bool’ has only one
+    In the expression: not isDigit (head xs)
+    In a stmt of a pattern guard for
+                   an equation for ‘f’:
+      not isDigit (head xs)
+
+/home/mario/babyhaskell/10week/AParser.hs:91:13:
+    Couldn't match expected type ‘Bool’ with actual type ‘Char -> Bool’
+    Probable cause: ‘isDigit’ is applied to too few arguments
+    In the first argument of ‘not’, namely ‘isDigit’
+    In the expression: not isDigit (head xs)
+
+/home/mario/babyhaskell/10week/AParser.hs:92:27:
+    Couldn't match expected type ‘[t]’ with actual type ‘a0 -> [a0]’
+    Relevant bindings include
+      f :: [a] -> Maybe ([t], [a])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:5)
+    Probable cause: ‘toList’ is applied to too few arguments
+    In the expression: toList
+    In the first argument of ‘Just’, namely ‘(toList, xs)’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:19:
+    Couldn't match type ‘[t0]’ with ‘a -> [Integer]’
+    Expected type: String -> Maybe (a -> [Integer], String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    Relevant bindings include
+      parseInt :: Parser (a -> [Integer])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:87:1)
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+
+/home/mario/babyhaskell/10week/AParser.hs:91:9:
+    Couldn't match expected type ‘a1 -> Bool’ with actual type ‘Bool’
+    Relevant bindings include
+      xs :: [a1]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:7)
+      f :: [a1] -> Maybe ([t], [a1])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:5)
+    The function ‘not’ is applied to two arguments,
+    but its type ‘Bool -> Bool’ has only one
+    In the expression: not isDigit (head xs)
+    In a stmt of a pattern guard for
+                   an equation for ‘f’:
+      not isDigit (head xs)
+
+/home/mario/babyhaskell/10week/AParser.hs:91:13:
+    Couldn't match expected type ‘Bool’ with actual type ‘Char -> Bool’
+    Probable cause: ‘isDigit’ is applied to too few arguments
+    In the first argument of ‘not’, namely ‘isDigit’
+    In the expression: not isDigit (head xs)
+
+/home/mario/babyhaskell/10week/AParser.hs:92:27:
+    Couldn't match expected type ‘[t]’ with actual type ‘a0 -> [a0]’
+    Relevant bindings include
+      f :: [a1] -> Maybe ([t], [a1])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:5)
+    Probable cause: ‘toList’ is applied to too few arguments
+    In the expression: toList
+    In the first argument of ‘Just’, namely ‘(toList, xs)’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:91:9:
+    Couldn't match expected type ‘a2 -> Bool’ with actual type ‘Bool’
+    Relevant bindings include
+      xs :: [a2]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:7)
+      f :: [a2] -> Maybe (a1 -> [a1], [a2])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:5)
+    The function ‘not’ is applied to two arguments,
+    but its type ‘Bool -> Bool’ has only one
+    In the expression: not isDigit (head xs)
+    In a stmt of a pattern guard for
+                   an equation for ‘f’:
+      not isDigit (head xs)
+
+/home/mario/babyhaskell/10week/AParser.hs:91:13:
+    Couldn't match expected type ‘Bool’ with actual type ‘Char -> Bool’
+    Probable cause: ‘isDigit’ is applied to too few arguments
+    In the first argument of ‘not’, namely ‘isDigit’
+    In the expression: not isDigit (head xs)
+Failed, modules loaded: none.
+λ> :t not
+not :: Bool -> Bool
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:19:
+    Couldn't match type ‘a’ with ‘Integer’
+      ‘a’ is a rigid type variable bound by
+          the type signature for parseInt :: Parser (a -> [Integer])
+          at /home/mario/babyhaskell/10week/AParser.hs:86:13
+    Expected type: String -> Maybe (a -> [Integer], String)
+      Actual type: [Char] -> Maybe (a -> [a], [Char])
+    Relevant bindings include
+      parseInt :: Parser (a -> [Integer])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:87:1)
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :t isDigit
+isDigit :: Char -> Bool
+λ> :t filter
+filter :: (a -> Bool) -> [a] -> [a]
+λ> "54 34 34"
+"54 34 34"
+λ> runParser (parseInt <*> posInt) "54 34"
+Just ([54]," 34")
+λ> :t ()
+() :: ()
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (parseInt <*> posInt) "54 34"
+Just ([54]," 34")
+λ> :t concat
+concat :: [[a]] -> [a]
+λ> concat []
+[]
+λ> toList 5
+[5]
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:91:27:
+    Not in scope: ‘toList’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:62:9:
+    Ambiguous occurrence ‘null’
+    It could refer to either ‘Prelude.null’,
+                             imported from ‘Prelude’ at /home/mario/babyhaskell/10week/AParser.hs:1:1
+                             (and originally defined in ‘GHC.List’)
+                          or ‘Data.Set.null’,
+                             imported from ‘Data.Set’ at /home/mario/babyhaskell/10week/AParser.hs:6:1-15
+                             (and originally defined in ‘containers-0.5.5.1:Data.Set.Base’)
+
+/home/mario/babyhaskell/10week/AParser.hs:91:9:
+    Ambiguous occurrence ‘null’
+    It could refer to either ‘Prelude.null’,
+                             imported from ‘Prelude’ at /home/mario/babyhaskell/10week/AParser.hs:1:1
+                             (and originally defined in ‘GHC.List’)
+                          or ‘Data.Set.null’,
+                             imported from ‘Data.Set’ at /home/mario/babyhaskell/10week/AParser.hs:6:1-15
+                             (and originally defined in ‘containers-0.5.5.1:Data.Set.Base’)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:88:19:
+    Couldn't match type ‘containers-0.5.5.1:Data.Set.Base.Set Integer’
+                  with ‘Integer’
+    Expected type: String -> Maybe (Integer -> [Integer], String)
+      Actual type: [Char]
+                   -> Maybe
+                        (containers-0.5.5.1:Data.Set.Base.Set Integer -> [Integer], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:62:9:
+    Ambiguous occurrence ‘null’
+    It could refer to either ‘Prelude.null’,
+                             imported from ‘Prelude’ at /home/mario/babyhaskell/10week/AParser.hs:1:1
+                             (and originally defined in ‘GHC.List’)
+                          or ‘D.null’,
+                             imported from ‘Data.Set’ at /home/mario/babyhaskell/10week/AParser.hs:6:1-20
+                             (and originally defined in ‘containers-0.5.5.1:Data.Set.Base’)
+
+/home/mario/babyhaskell/10week/AParser.hs:91:9:
+    Ambiguous occurrence ‘null’
+    It could refer to either ‘Prelude.null’,
+                             imported from ‘Prelude’ at /home/mario/babyhaskell/10week/AParser.hs:1:1
+                             (and originally defined in ‘GHC.List’)
+                          or ‘D.null’,
+                             imported from ‘Data.Set’ at /home/mario/babyhaskell/10week/AParser.hs:6:1-20
+                             (and originally defined in ‘containers-0.5.5.1:Data.Set.Base’)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:96:13:
+    Couldn't match expected type ‘Char’ with actual type ‘a’
+      ‘a’ is a rigid type variable bound by
+          the type signature for toList :: a -> [Integer]
+          at /home/mario/babyhaskell/10week/AParser.hs:94:11
+    Relevant bindings include
+      x :: a (bound at /home/mario/babyhaskell/10week/AParser.hs:95:8)
+      toList :: a -> [Integer]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:95:1)
+    In the first argument of ‘isDigit’, namely ‘x’
+    In the expression: isDigit x
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:96:10:
+    Couldn't match expected type ‘a’ with actual type ‘Char’
+      ‘a’ is a rigid type variable bound by
+          the type signature for toList :: a -> [a]
+          at /home/mario/babyhaskell/10week/AParser.hs:94:11
+    Relevant bindings include
+      x :: a (bound at /home/mario/babyhaskell/10week/AParser.hs:95:8)
+      toList :: a -> [a]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:95:1)
+    In the second argument of ‘(==)’, namely ‘' '’
+    In the expression: x == ' '
+    In a stmt of a pattern guard for
+                   an equation for ‘toList’:
+      x == ' '
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:1:
+    parse error (possibly incorrect indentation or mismatched brackets)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:80:21:
+    Couldn't match type ‘[t0]’ with ‘Char -> [Char]’
+    Expected type: String -> Maybe (Char -> [Char], String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+
+/home/mario/babyhaskell/10week/AParser.hs:85:27:
+    Couldn't match expected type ‘[t]’ with actual type ‘a0 -> [a0]’
+    Relevant bindings include
+      f :: [Char] -> Maybe ([t], [Char])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:82:5)
+    Probable cause: ‘toList’ is applied to too few arguments
+    In the expression: toList
+    In the first argument of ‘Just’, namely ‘(toList, xs)’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (parseInt <*> posInt) "54 34"
+Just ([54]," 34")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:72:21:
+    Expecting one more argument to ‘[]’
+    The first argument of ‘Parser’ should have kind ‘*’,
+      but ‘[]’ has kind ‘* -> *’
+    In the type signature for ‘abParser_’: abParser_ :: Parser []
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> tail "hello"
+"ello"
+λ> tail ""
+"*** Exception: Prelude.tail: empty list
+λ> :t "54 34"
+"54 34" :: [Char]
+λ> :t filter
+filter :: (a -> Bool) -> [a] -> [a]
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (parseInt <*> posInt)
+runParser (parseInt <*> posInt)
+  :: String -> Maybe ([Integer], String)
+λ> runParser (parseInt <*> posInt) "54"
+Just ([54],"")
+λ> runParser (parseInt <*> posInt) "54 34"
+Just ([54]," 34")
+λ> 
+Just ([54]," 34")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (parseInt <*> posInt) "54 34"
+Just ([4]," 34")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:83:14:
+    Not in scope: ‘ns’
+    Perhaps you meant ‘xs’ (line 82)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (parseSpace <*> posChar) " 34"
+Just ("3","4")
+λ> filter (\x -> x == ' ') [' ','5','4']
+" "
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:21:
+    Couldn't match type ‘[t0]’ with ‘Char -> [Char]’
+    Expected type: String -> Maybe (Char -> [Char], String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:21:
+    Couldn't match type ‘[t0]’ with ‘Char -> [Char]’
+    Expected type: String -> Maybe (Char -> [Char], String)
+      Actual type: [Char] -> Maybe ([t0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :t (++)
+(++) :: [a] -> [a] -> [a]
+λ> 5:[]
+[5]
+λ> :t (:)
+(:) :: a -> [a] -> [a]
+λ> 5 : [5,4,3]
+[5,5,4,3]
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:20:
+    Couldn't match type ‘[a0]’ with ‘Char’
+    Expected type: String -> Maybe (Char -> Char, String)
+      Actual type: [Char] -> Maybe ([a0] -> [a0], [Char])
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+
+/home/mario/babyhaskell/10week/AParser.hs:92:27:
+    Occurs check: cannot construct the infinite type: a ~ [a]
+    Expected type: [a] -> [a]
+      Actual type: [a] -> [[a]]
+    Relevant bindings include
+      f :: [Char] -> Maybe ([a] -> [a], [Char])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:5)
+    In the expression: toList
+    In the first argument of ‘Just’, namely ‘(toList, xs)’
+
+/home/mario/babyhaskell/10week/AParser.hs:98:19:
+    Couldn't match expected type ‘a’ with actual type ‘[a]’
+      ‘a’ is a rigid type variable bound by
+          the type signature for putAtEnd :: [a] -> [a]
+          at /home/mario/babyhaskell/10week/AParser.hs:97:13
+    Relevant bindings include
+      xs :: [a]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:98:13)
+      x :: a (bound at /home/mario/babyhaskell/10week/AParser.hs:98:11)
+      putAtEnd :: [a] -> [a]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:98:1)
+    In the first argument of ‘(:)’, namely ‘xs’
+    In the expression: xs : x
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:1:
+    parse error (possibly incorrect indentation or mismatched brackets)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:97:19:
+    Couldn't match expected type ‘a’ with actual type ‘[a]’
+      ‘a’ is a rigid type variable bound by
+          the type signature for putAtEnd :: [a] -> [a]
+          at /home/mario/babyhaskell/10week/AParser.hs:96:13
+    Relevant bindings include
+      xs :: [a]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:97:13)
+      x :: a (bound at /home/mario/babyhaskell/10week/AParser.hs:97:11)
+      putAtEnd :: [a] -> [a]
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:97:1)
+    In the first argument of ‘(:)’, namely ‘xs’
+    In the expression: xs : x
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (parseToList <*> posInt) "54 34"
+Just ([54]," 34")
+λ> :t fmap
+fmap :: Functor f => (a -> b) -> f a -> f b
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:97:21:
+    parse error on input ‘=’
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:87:20:
+    Couldn't match type ‘([x0], [y0])’ with ‘[a]’
+    Expected type: String -> Maybe ([a] -> [a], String)
+      Actual type: [Char]
+                   -> Maybe (([x0], [y0]) -> ([x0], [y0]), [Char])
+    Relevant bindings include
+      parseChar :: Parser ([a] -> [a])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:87:1)
+    In the first argument of ‘Parser’, namely ‘f’
+    In the expression: Parser f
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (
+Just ([54]," 34")
+λ> 
+Just ([54],"34 ")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser (finalParser <*> posInt) "54 34"
+Just (4," 345")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:89:28:
+    Couldn't match type ‘([x], [y])’ with ‘Maybe ([Integer], String)’
+    Expected type: String -> ([x], [y])
+      Actual type: String -> Maybe ([Integer], String)
+    Relevant bindings include
+      finalParser :: String -> ([x], [y])
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:89:1)
+    In the second argument of ‘(<$>)’, namely
+      ‘runParser (parseToList <*> posInt)’
+    In the expression: putAtEnd <$> runParser (parseToList <*> posInt)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+
+/home/mario/babyhaskell/10week/AParser.hs:90:15:
+    Couldn't match type ‘([x], [y])’
+                  with ‘Maybe ([Integer], String) -> b’
+    Expected type: ([x], [y]) -> Maybe ([Integer], String) -> b
+      Actual type: ([x], [y]) -> ([x], [y])
+    Relevant bindings include
+      finalParser :: ([x], [y]) -> b
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:90:1)
+    In the first argument of ‘(<*>)’, namely ‘putAtEnd’
+    In the expression: putAtEnd <*> runParser (parseToList <*> posInt)
+
+/home/mario/babyhaskell/10week/AParser.hs:90:28:
+    Couldn't match type ‘([x], [y])’ with ‘[Char]’
+    Expected type: ([x], [y]) -> Maybe ([Integer], String)
+      Actual type: String -> Maybe ([Integer], String)
+    Relevant bindings include
+      finalParser :: ([x], [y]) -> b
+        (bound at /home/mario/babyhaskell/10week/AParser.hs:90:1)
+    In the second argument of ‘(<*>)’, namely
+      ‘runParser (parseToList <*> posInt)’
+    In the expression: putAtEnd <*> runParser (parseToList <*> posInt)
+Failed, modules loaded: none.
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> putAtEnd <$> runParser (parseToList <*> posInt) "54 34"
+Just ([54],"34 ")
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> runParser finalParser "54 34"
+Just ([54],"34 ")
+λ> :t finalParser
+finalParser :: Parser [Integer]
+λ> :r
+[1 of 1] Compiling Main             ( /home/mario/babyhaskell/10week/AParser.hs, interpreted )
+Ok, modules loaded: Main.
+λ> :t span
+span :: (a -> Bool) -> [a] -> ([a], [a])
+λ> 
