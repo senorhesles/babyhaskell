@@ -17,30 +17,14 @@ satisfy p = Parser f
 char :: Char -> Parser Char
 char c = satisfy (== c)
 
+char2 :: Parser Char
+char2 = satisfy (isUpper)
+
 first :: (a -> b) -> (a,c) -> (b,c)
 first f tuple = ((f (fst tuple)),(snd tuple))
 
 instance Functor Parser where
   fmap f (Parser g) = (Parser (fmap (first f) . g))
-
-type Name = String
-
-data Employee = Employee { name    :: Name
-                         , phone   :: String }
-              deriving Show
-
-m_name1, m_name2 :: Maybe Name
-m_name1 = Nothing
-m_name2 = Just "Brent"
-
-m_phone1, m_phone2 :: Maybe String
-m_phone1 = Nothing
-m_phone2 = Just "555-1234"
-
-ex01 = Employee <$> m_name1 <*> m_phone1
-ex02 = Employee <$> m_name1 <*> m_phone2
-ex03 = Employee <$> m_name2 <*> m_phone1
-ex04 = (Employee <$> m_name2) <*> m_phone2
 
 -- the type of f is (String -> Maybe (a -> b, String))
 -- JMJ, please help me to understand why this works
@@ -85,5 +69,19 @@ abParser_1 = (\x y -> ()) <$> char 'a' <*> char 'b'
 intPair :: Parser [Integer]
 intPair = (\x _ y -> [x, y]) <$> posInt <*> char ' ' <*> posInt
 
+newPosInt :: Parser ()
+newPosInt = (\x -> ()) <$> posInt
+
+newChar :: Parser ()
+newChar = (\x -> ()) <$> char2
+
 -- Exercise 4
 
+instance Alternative Parser where
+  empty = (Parser $ \x -> Nothing)
+  (Parser l) <|> (Parser r) = Parser $ \x ->
+    case l x of
+    Nothing -> r x
+    Just (t,x') -> Just (t,x')
+
+intOrUppercase = newPosInt <|> newChar
