@@ -1,3 +1,44 @@
 
-./SExpr.hs,9
-(.(5,6
+./AParser.hs,826
+module AParser AParser1,2
+newtype Parser Parser8,9
+newtype Parser a = Parser Parser8,9
+newtype Parser a = Parser { runParser runParser8,9
+satisfy satisfy10,11
+satisfy satisfy11,12
+char char18,19
+char char19,20
+char2 char221,22
+char2 char222,23
+first first24,25
+first first25,26
+instance instance27,28
+posInt posInt42,43
+posInt posInt43,44
+abParser abParser50,51
+abParser abParser51,52
+abParser_ abParser_57,58
+abParser_ abParser_58,59
+abParser1 abParser164,65
+abParser1 abParser165,66
+abParser_1 abParser_167,68
+abParser_1 abParser_168,69
+intPair intPair70,71
+intPair intPair71,72
+newPosInt newPosInt73,74
+newPosInt newPosInt74,75
+newChar newChar76,77
+newChar newChar77,78
+newnewChar newnewChar79,80
+newnewChar newnewChar80,81
+intOrUppercase intOrUppercase91,92
+
+./SExpr.hs,187
+zeroOrMore zeroOrMore6,7
+zeroOrMore zeroOrMore7,8
+oneOrMore oneOrMore9,10
+oneOrMore oneOrMore10,11
+spaces spaces12,13
+spaces spaces13,14
+ident ident15,16
+ident ident16,17

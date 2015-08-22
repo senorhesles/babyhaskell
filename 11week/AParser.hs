@@ -1,4 +1,6 @@
 
+module AParser where
+
 import Control.Applicative
 import Data.Char
 import Data.Maybe
@@ -74,6 +76,9 @@ newPosInt = (\x -> ()) <$> posInt
 
 newChar :: Parser ()
 newChar = (\x -> ()) <$> char2
+
+newnewChar :: Parser [Char]
+newnewChar = (\x -> [x]) <$> char2
 
 -- Exercise 4
 
