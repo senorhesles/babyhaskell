@@ -26,3 +26,12 @@ die = getRandom
 type Army = Int
 
 data Battlefield = Battlefield { attackers :: Army, defenders :: Army }
+
+battle :: Battlefield -> Rand StdGen Battlefield
+battle (Battlefield x y) = (Battlefield 
+
+--------------------------------------------------------------
+-- Playground
+
+
+  
