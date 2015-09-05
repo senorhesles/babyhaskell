@@ -1,5 +1,5 @@
 
-./Risk.hs,507
+./Risk.hs,604
 module Risk Risk2,3
 newtype DieValue DieValue9,10
 newtype DieValue = DV DV9,10
@@ -14,5 +14,10 @@ data Battlefield Battlefield27,28
 data Battlefield = Battlefield Battlefield27,28
 data Battlefield = Battlefield { attackers attackers27,28
 data Battlefield = Battlefield { attackers :: Army, defenders defenders27,28
-battle battle29,30
-battle battle30,31
+threeInts threeInts29,30
+threeInts threeInts30,31
+die1 die136,37
+die1 die137,38
+dice dice39,40
+dice dice40,41
+main main42,43
