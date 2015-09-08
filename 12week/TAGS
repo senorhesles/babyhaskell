@@ -1,5 +1,5 @@
 
-./Risk.hs,604
+./Risk.hs,704
 module Risk Risk2,3
 newtype DieValue DieValue9,10
 newtype DieValue = DV DV9,10
@@ -7,17 +7,21 @@ newtype DieValue = DV { unDV unDV9,10
 first first12,13
 first first13,14
 instance instance15,16
-die die19,20
-die die20,21
-type Army Army25,26
-data Battlefield Battlefield27,28
-data Battlefield = Battlefield Battlefield27,28
-data Battlefield = Battlefield { attackers attackers27,28
-data Battlefield = Battlefield { attackers :: Army, defenders defenders27,28
-threeInts threeInts29,30
-threeInts threeInts30,31
-die1 die136,37
-die1 die137,38
-dice dice39,40
-dice dice40,41
-main main42,43
+die die22,23
+die die23,24
+type Army Army28,29
+data Battlefield Battlefield30,31
+data Battlefield = Battlefield Battlefield30,31
+data Battlefield = Battlefield { attackers attackers30,31
+data Battlefield = Battlefield { attackers :: Army, defenders defenders30,31
+threeInts threeInts32,33
+threeInts threeInts33,34
+die1 die139,40
+die1 die140,41
+dice dice42,43
+dice dice43,44
+battle battle45,46
+battle battle46,47
+testBattle testBattle48,49
+testBattle testBattle49,50
+main main51,52
