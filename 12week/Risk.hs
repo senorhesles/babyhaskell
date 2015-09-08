@@ -30,35 +30,50 @@ type Army = Int
 
 data Battlefield = Battlefield { attackers :: Army, defenders :: Army } deriving Show
 
-threeInts :: Rand StdGen (Int,Int,Int)
+threeInts :: Rand StdGen (DieValue,DieValue,DieValue)
 threeInts =
-  getRandom >>= \i1 ->
-  getRandom >>= \i2 ->
-  getRandom >>= \i3 ->
+  die >>= \i1 ->
+  die >>= \i2 ->
+  die >>= \i3 ->
   return (i1,i2,i3)
+
+twoInts :: Rand StdGen (DieValue,DieValue)
+twoInts =
+  die >>= \i1 ->
+  die >>= \i2 ->
+  return (i1,i2)
+
+threeIntss :: Rand StdGen (DieValue,DieValue,DieValue)
+threeIntss = die >>= (\i1 -> die >>= (\i2 -> die >>= (\i3 -> return (i1,i2,i3))))
 
 die1 :: (RandomGen g) => Rand g Int
 die1 = getRandomR (1,6)
 
+die2 :: (RandomGen g) => Rand g Int
+die2 = getRandomR (1,6)
+
 dice :: (RandomGen g) => Int -> Rand g [Int]
 dice n = sequence (replicate n die1)
 
-battle :: Battlefield -> Rand StdGen Battlefield
-battle bf = return bf
+{-
+--battle :: Battlefield -> Rand StdGen Battlefield
+--battle (Battlefield 1 y)
+  randGen1 >>= \int1 ->
+  randGen2 >>= \int2 ->
+  return (int1 == int2)
+-}
 
 testBattle :: Battlefield
 testBattle = Battlefield 15 14
 
 main = do
-  values <- evalRandIO threeInts
+  values <- evalRandIO threeIntss
   morevals <- evalRandIO (dice 2)
   first <- evalRandIO die1
   secon <- evalRandIO die1
   moredies <- evalRandIO die
-  battles <- evalRandIO (battle testBattle)
-  putStrLn (show values)
-  putStrLn (show morevals)
-  putStrLn (show moredies)
-  putStrLn "hello"
-  putStrLn (show battles)
-  putStrLn (show (max first secon))
+--  battles <- evalRandIO (battle testBattle)
+  trip <- evalRandIO threeInts
+  dubs <- evalRandIO twoInts
+  putStrLn (show first)
+  

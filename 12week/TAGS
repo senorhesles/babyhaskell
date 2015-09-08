@@ -1,5 +1,11 @@
 
-./Risk.hs,704
+./test.hs,100
+getRandomR getRandomR4,5
+getRandomR getRandomR5,6
+rollDie rollDie10,11
+rollDie rollDie11,12
+
+./Risk.hs,800
 module Risk Risk2,3
 newtype DieValue DieValue9,10
 newtype DieValue = DV DV9,10
@@ -16,12 +22,16 @@ data Battlefield = Battlefield { attackers attackers30,31
 data Battlefield = Battlefield { attackers :: Army, defenders defenders30,31
 threeInts threeInts32,33
 threeInts threeInts33,34
-die1 die139,40
-die1 die140,41
-dice dice42,43
-dice dice43,44
-battle battle45,46
-battle battle46,47
-testBattle testBattle48,49
-testBattle testBattle49,50
-main main51,52
+twoInts twoInts39,40
+twoInts twoInts40,41
+threeIntss threeIntss45,46
+threeIntss threeIntss46,47
+die1 die148,49
+die1 die149,50
+die2 die251,52
+die2 die252,53
+dice dice54,55
+dice dice55,56
+testBattle testBattle65,66
+testBattle testBattle66,67
+main main68,69
