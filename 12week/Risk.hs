@@ -2,7 +2,15 @@
 
 module Risk where
 
+import Control.Monad
 import Control.Monad.Random
+import Data.Array(Array,accumArray,assocs)
+
+sort :: [Int] -> [Int]
+sort xs = concat [replicate k x | (x,k) <- assocs count]
+        where count :: Array Int Int
+              count = accumArray (+) 0 range (zip xs (repeat 1))
+              range = (0, maximum xs)
 
 ------------------------------------------------------------
 -- Die values
@@ -56,18 +64,66 @@ dice :: (RandomGen g) => Int -> Rand g [Int]
 dice n = sequence (replicate n die1)
 
 battle :: Battlefield -> Rand StdGen Battlefield
+battle (Battlefield 0 0) = do
+  return (Battlefield 0 0)
+battle (Battlefield 1 0) = do
+  return (Battlefield 1 0)
+battle (Battlefield 2 1) = do
+  a1 <- rollDie
+  b1 <- rollDie
+  let bb = battlez (map unDV [a1]) (map unDV [b1]) (2,1)
+  return (Battlefield (fst bb) (snd bb))
+battle (Battlefield 3 1) = do
+  a1 <- rollDie
+  a2 <- rollDie
+  b1 <- rollDie
+  let bb = battlez (map unDV [a1,a2]) (map unDV [b1]) (3,1)
+  return (Battlefield (fst bb) (snd bb))
+battle (Battlefield 2 2) = do
+  a1 <- rollDie
+  b1 <- rollDie
+  b2 <- rollDie
+  let bb = battlez (map unDV [a1]) (map unDV [b1,b2]) (2,2)
+  return (Battlefield (fst bb) (snd bb))
+battle (Battlefield 3 2) = do
+  a1 <- rollDie
+  a2 <- rollDie
+  b1 <- rollDie
+  b2 <- rollDie
+  let bb = battlez (map unDV [a1,a2]) (map unDV [b1,b2]) (3,2)
+  return (Battlefield (fst bb) (snd bb))
 battle (Battlefield x y) = do
-  a1 <- getRandomR (1,6)
-  a2 <- getRandomR (1,6)
-  a3 <- getRandomR (1,6)
-  b1 <- getRandomR (1,6)
-  b2 <- getRandomR (1,6)
-  | (x == 1) = return (Battlefield x y)
-  | (x == 2) &&
+  a1 <- rollDie
+  a2 <- rollDie
+  a3 <- rollDie
+  b1 <- rollDie
+  b2 <- rollDie
+  let bb = battlez (map unDV [a1,a2,a3]) (map unDV [b1,b2]) (x,y)
+  return (Battlefield (fst bb) (snd bb))
 
+invade 
 
-testBattle :: Battlefield
-testBattle = Battlefield 15 14
+battlez :: [Int] -> [Int] -> (Int,Int) -> (Int,Int)
+battlez [] _ (x,y) = (x,y)
+battlez _ [] (x,y) = (x,y)
+battlez xs ys (x,y) =
+  let
+    f = reverse $ sort xs
+    s = reverse $ sort ys
+    mf = maximum f
+    ms = maximum s
+    resultz = win mf ms
+  in
+    battlez (tail f) (tail s) (score resultz (x,y))
+
+score :: Bool -> (Int,Int) -> (Int,Int)
+score True (x,y) = (x,(y - 1))
+score _ (x,y) = ((x - 1),y)
+
+win :: Int -> Int -> Bool
+win x y
+  | x > y = True
+  | otherwise = False
 
 rollDie :: Rand StdGen DieValue
 rollDie = do
@@ -83,5 +139,6 @@ main = do
 --  battles <- evalRandIO (battle testBattle)
   trip <- evalRandIO threeInts
   dubs <- evalRandIO twoInts
-  putStrLn (show first)
+  rslts <- evalRandIO (battle (Battlefield 5 5))
+  putStrLn (show rslts)
   

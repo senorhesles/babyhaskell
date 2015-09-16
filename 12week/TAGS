@@ -5,37 +5,43 @@ getRandomR getRandomR5,6
 rollDie rollDie10,11
 rollDie rollDie11,12
 
-./Risk.hs,888
+./Risk.hs,996
 module Risk Risk2,3
-newtype DieValue DieValue9,10
-newtype DieValue = DV DV9,10
-newtype DieValue = DV { unDV unDV9,10
-first first12,13
-first first13,14
-instance instance15,16
-die die22,23
-die die23,24
-type Army Army28,29
-data Battlefield Battlefield30,31
-data Battlefield = Battlefield Battlefield30,31
-data Battlefield = Battlefield { attackers attackers30,31
-data Battlefield = Battlefield { attackers :: Army, defenders defenders30,31
-threeInts threeInts32,33
-threeInts threeInts33,34
-twoInts twoInts39,40
-twoInts twoInts40,41
-threeIntss threeIntss45,46
-threeIntss threeIntss46,47
-die1 die148,49
-die1 die149,50
-die2 die251,52
-die2 die252,53
-dice dice54,55
-dice dice55,56
-battle battle57,58
-battle battle58,59
-testBattle testBattle68,69
-testBattle testBattle69,70
-rollDie rollDie71,72
-rollDie rollDie72,73
-main main76,77
+sort sort8,9
+sort sort9,10
+newtype DieValue DieValue17,18
+newtype DieValue = DV DV17,18
+newtype DieValue = DV { unDV unDV17,18
+first first20,21
+first first21,22
+instance instance23,24
+die die30,31
+die die31,32
+type Army Army36,37
+data Battlefield Battlefield38,39
+data Battlefield = Battlefield Battlefield38,39
+data Battlefield = Battlefield { attackers attackers38,39
+data Battlefield = Battlefield { attackers :: Army, defenders defenders38,39
+threeInts threeInts40,41
+threeInts threeInts41,42
+twoInts twoInts47,48
+twoInts twoInts48,49
+threeIntss threeIntss53,54
+threeIntss threeIntss54,55
+die1 die156,57
+die1 die157,58
+die2 die259,60
+die2 die260,61
+dice dice62,63
+dice dice63,64
+battle battle65,66
+battle battle66,67
+battlez battlez105,106
+battlez battlez106,107
+score score118,119
+score score119,120
+win win122,123
+win win123,124
+rollDie rollDie127,128
+rollDie rollDie128,129
+main main132,133
