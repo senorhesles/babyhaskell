@@ -5,7 +5,7 @@ getRandomR getRandomR5,6
 rollDie rollDie10,11
 rollDie rollDie11,12
 
-./Risk.hs,800
+./Risk.hs,888
 module Risk Risk2,3
 newtype DieValue DieValue9,10
 newtype DieValue = DV DV9,10
@@ -32,6 +32,10 @@ die2 die251,52
 die2 die252,53
 dice dice54,55
 dice dice55,56
-testBattle testBattle65,66
-testBattle testBattle66,67
-main main68,69
+battle battle57,58
+battle battle58,59
+testBattle testBattle68,69
+testBattle testBattle69,70
+rollDie rollDie71,72
+rollDie rollDie72,73
+main main76,77

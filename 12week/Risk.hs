@@ -55,16 +55,24 @@ die2 = getRandomR (1,6)
 dice :: (RandomGen g) => Int -> Rand g [Int]
 dice n = sequence (replicate n die1)
 
-{-
---battle :: Battlefield -> Rand StdGen Battlefield
---battle (Battlefield 1 y)
-  randGen1 >>= \int1 ->
-  randGen2 >>= \int2 ->
-  return (int1 == int2)
--}
+battle :: Battlefield -> Rand StdGen Battlefield
+battle (Battlefield x y) = do
+  a1 <- getRandomR (1,6)
+  a2 <- getRandomR (1,6)
+  a3 <- getRandomR (1,6)
+  b1 <- getRandomR (1,6)
+  b2 <- getRandomR (1,6)
+  | (x == 1) = return (Battlefield x y)
+  | (x == 2) &&
+
 
 testBattle :: Battlefield
 testBattle = Battlefield 15 14
+
+rollDie :: Rand StdGen DieValue
+rollDie = do
+  i <- getRandomR (1,6)
+  return i
 
 main = do
   values <- evalRandIO threeIntss
