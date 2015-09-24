@@ -5,7 +5,7 @@ getRandomR getRandomR5,6
 rollDie rollDie10,11
 rollDie rollDie11,12
 
-./Risk.hs,996
+./Risk.hs,1042
 module Risk Risk2,3
 sort sort8,9
 sort sort9,10
@@ -36,12 +36,14 @@ dice dice62,63
 dice dice63,64
 battle battle65,66
 battle battle66,67
-battlez battlez105,106
-battlez battlez106,107
-score score118,119
-score score119,120
-win win122,123
-win win123,124
-rollDie rollDie127,128
-rollDie rollDie128,129
-main main132,133
+invade invade103,104
+invade invade104,105
+battlez battlez108,109
+battlez battlez109,110
+score score121,122
+score score122,123
+win win125,126
+win win126,127
+rollDie rollDie130,131
+rollDie rollDie131,132
+main main135,136

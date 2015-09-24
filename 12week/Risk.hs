@@ -101,7 +101,10 @@ battle (Battlefield x y) = do
   let bb = battlez (map unDV [a1,a2,a3]) (map unDV [b1,b2]) (x,y)
   return (Battlefield (fst bb) (snd bb))
 
-invade 
+invade :: Battlefield -> Rand StdGen Battlefield
+invade battlefeerd = (battle battlefeerd) >>= invade
+
+
 
 battlez :: [Int] -> [Int] -> (Int,Int) -> (Int,Int)
 battlez [] _ (x,y) = (x,y)
@@ -140,5 +143,6 @@ main = do
   trip <- evalRandIO threeInts
   dubs <- evalRandIO twoInts
   rslts <- evalRandIO (battle (Battlefield 5 5))
-  putStrLn (show rslts)
+  beertles <- evalRandIO (battle (Battlefield 15 15))
+  putStrLn (show beertles)
   
