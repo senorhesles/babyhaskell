@@ -25,9 +25,6 @@ instance Random DieValue where
   random           = first DV . randomR (1,6)
   randomR (low,hi) = first DV . randomR (max 1 (unDV low), min 6 (unDV hi))
 
---instance Random Battlefield where
---  random = 
-
 die :: Rand StdGen DieValue
 die = getRandom
 
@@ -38,111 +35,67 @@ type Army = Int
 
 data Battlefield = Battlefield { attackers :: Army, defenders :: Army } deriving Show
 
-threeInts :: Rand StdGen (DieValue,DieValue,DieValue)
-threeInts =
+attToDice (Battlefield x y)
+  | x >= 4 = threeInt
+  | x == 3 = twoInt
+  | x == 2 = oneInt
+
+
+defToDice (Battlefield x y)
+  | y >= 3 = threeInt
+  | y == 2 = twoInt
+  | y == 1 = oneInt
+
+threeInt =
   die >>= \i1 ->
   die >>= \i2 ->
   die >>= \i3 ->
-  return (i1,i2,i3)
+  return [i1,i2,i3]
 
-twoInts :: Rand StdGen (DieValue,DieValue)
-twoInts =
+twoInt =
   die >>= \i1 ->
   die >>= \i2 ->
-  return (i1,i2)
+  return [i1,i2]
 
-threeIntss :: Rand StdGen (DieValue,DieValue,DieValue)
-threeIntss = die >>= (\i1 -> die >>= (\i2 -> die >>= (\i3 -> return (i1,i2,i3))))
+oneInt =
+  die >>= \i1 ->
+  return [i1]
 
-die1 :: (RandomGen g) => Rand g Int
-die1 = getRandomR (1,6)
+strongToWeak xs = reverse $ sort $ map unDV xs
 
-die2 :: (RandomGen g) => Rand g Int
-die2 = getRandomR (1,6)
+battleInd :: (Int,Int) -> Battlefield -> Battlefield
+battleInd (x,y) (Battlefield att def)
+  | x > y = (Battlefield att (def - 1))
+  | x < 2 = (Battlefield att def)
+  | y == 0 = (Battlefield att def)
+  | otherwise = (Battlefield (att - 1) def)
 
-dice :: (RandomGen g) => Int -> Rand g [Int]
-dice n = sequence (replicate n die1)
+battleList :: [(Int,Int)] -> Battlefield -> Battlefield
+battleList list bf = foldr battleInd bf list
 
-battle :: Battlefield -> Rand StdGen Battlefield
-battle (Battlefield 0 0) = do
-  return (Battlefield 0 0)
-battle (Battlefield 1 0) = do
-  return (Battlefield 1 0)
-battle (Battlefield 2 1) = do
-  a1 <- rollDie
-  b1 <- rollDie
-  let bb = battlez (map unDV [a1]) (map unDV [b1]) (2,1)
-  return (Battlefield (fst bb) (snd bb))
-battle (Battlefield 3 1) = do
-  a1 <- rollDie
-  a2 <- rollDie
-  b1 <- rollDie
-  let bb = battlez (map unDV [a1,a2]) (map unDV [b1]) (3,1)
-  return (Battlefield (fst bb) (snd bb))
-battle (Battlefield 2 2) = do
-  a1 <- rollDie
-  b1 <- rollDie
-  b2 <- rollDie
-  let bb = battlez (map unDV [a1]) (map unDV [b1,b2]) (2,2)
-  return (Battlefield (fst bb) (snd bb))
-battle (Battlefield 3 2) = do
-  a1 <- rollDie
-  a2 <- rollDie
-  b1 <- rollDie
-  b2 <- rollDie
-  let bb = battlez (map unDV [a1,a2]) (map unDV [b1,b2]) (3,2)
-  return (Battlefield (fst bb) (snd bb))
-battle (Battlefield x y) = do
-  a1 <- rollDie
-  a2 <- rollDie
-  a3 <- rollDie
-  b1 <- rollDie
-  b2 <- rollDie
-  let bb = battlez (map unDV [a1,a2,a3]) (map unDV [b1,b2]) (x,y)
-  return (Battlefield (fst bb) (snd bb))
-
-invade :: Battlefield -> Rand StdGen Battlefield
-invade battlefeerd = (battle battlefeerd) >>= invade
-
-
-
-battlez :: [Int] -> [Int] -> (Int,Int) -> (Int,Int)
-battlez [] _ (x,y) = (x,y)
-battlez _ [] (x,y) = (x,y)
-battlez xs ys (x,y) =
+battleFinal :: Battlefield -> Rand StdGen Battlefield
+battleFinal (Battlefield 0 y) = return (Battlefield 0 y)
+battleFinal (Battlefield x 0) = return (Battlefield x 0)
+battleFinal (Battlefield 1 y) = return (Battlefield 1 y)
+battleFinal bf = do
+  att <- attToDice bf
+  def <- defToDice bf
   let
-    f = reverse $ sort xs
-    s = reverse $ sort ys
-    mf = maximum f
-    ms = maximum s
-    resultz = win mf ms
-  in
-    battlez (tail f) (tail s) (score resultz (x,y))
+    attSort = strongToWeak att
+    defSort = strongToWeak def
+    engage = zip attSort defSort
+    battleF = battleList engage bf
+  return battleF
 
-score :: Bool -> (Int,Int) -> (Int,Int)
-score True (x,y) = (x,(y - 1))
-score _ (x,y) = ((x - 1),y)
-
-win :: Int -> Int -> Bool
-win x y
-  | x > y = True
-  | otherwise = False
-
-rollDie :: Rand StdGen DieValue
-rollDie = do
-  i <- getRandomR (1,6)
-  return i
+invadeFinal :: Battlefield -> Rand StdGen Battlefield
+invadeFinal (Battlefield 0 y) = return (Battlefield 0 y)
+invadeFinal (Battlefield x 0) = return (Battlefield x 0)
+invadeFinal (Battlefield 1 y) = return (Battlefield 1 y)
+invadeFinal bf = do
+  v <- battleFinal bf
+  vs <- invadeFinal v
+  return vs
 
 main = do
-  values <- evalRandIO threeIntss
-  morevals <- evalRandIO (dice 2)
-  first <- evalRandIO die1
-  secon <- evalRandIO die1
-  moredies <- evalRandIO die
---  battles <- evalRandIO (battle testBattle)
-  trip <- evalRandIO threeInts
-  dubs <- evalRandIO twoInts
-  rslts <- evalRandIO (battle (Battlefield 5 5))
-  beertles <- evalRandIO (battle (Battlefield 15 15))
-  putStrLn (show beertles)
-  
+  bff2 <- evalRandIO (invadeFinal (Battlefield 15 15))
+  putStrLn (show bff2)

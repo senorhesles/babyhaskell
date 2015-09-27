@@ -5,7 +5,7 @@ getRandomR getRandomR5,6
 rollDie rollDie10,11
 rollDie rollDie11,12
 
-./Risk.hs,1042
+./Risk.hs,906
 module Risk Risk2,3
 sort sort8,9
 sort sort9,10
@@ -15,35 +15,25 @@ newtype DieValue = DV { unDV unDV17,18
 first first20,21
 first first21,22
 instance instance23,24
-die die30,31
-die die31,32
-type Army Army36,37
-data Battlefield Battlefield38,39
-data Battlefield = Battlefield Battlefield38,39
-data Battlefield = Battlefield { attackers attackers38,39
-data Battlefield = Battlefield { attackers :: Army, defenders defenders38,39
-threeInts threeInts40,41
-threeInts threeInts41,42
-twoInts twoInts47,48
-twoInts twoInts48,49
-threeIntss threeIntss53,54
-threeIntss threeIntss54,55
-die1 die156,57
-die1 die157,58
-die2 die259,60
-die2 die260,61
-dice dice62,63
-dice dice63,64
-battle battle65,66
-battle battle66,67
-invade invade103,104
-invade invade104,105
-battlez battlez108,109
-battlez battlez109,110
-score score121,122
-score score122,123
-win win125,126
-win win126,127
-rollDie rollDie130,131
-rollDie rollDie131,132
-main main135,136
+die die27,28
+die die28,29
+type Army Army33,34
+data Battlefield Battlefield35,36
+data Battlefield = Battlefield Battlefield35,36
+data Battlefield = Battlefield { attackers attackers35,36
+data Battlefield = Battlefield { attackers :: Army, defenders defenders35,36
+attToDice attToDice37,38
+defToDice defToDice43,44
+threeInt threeInt48,49
+twoInt twoInt54,55
+oneInt oneInt59,60
+strongToWeak strongToWeak63,64
+battleInd battleInd65,66
+battleInd battleInd66,67
+battleList battleList72,73
+battleList battleList73,74
+battleFinal battleFinal75,76
+battleFinal battleFinal76,77
+invadeFinal invadeFinal89,90
+invadeFinal invadeFinal90,91
+main main98,99
