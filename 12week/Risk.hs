@@ -3,6 +3,7 @@
 module Risk where
 
 import Control.Monad
+import Control.Applicative
 import Control.Monad.Random
 import Data.Array(Array,accumArray,assocs)
 
@@ -96,6 +97,27 @@ invadeFinal bf = do
   vs <- invadeFinal v
   return vs
 
+successProb :: Battlefield -> Rand StdGen Double
+successProb bf = do
+  v <- replicateM 100000 (invadeFinal bf)
+  let
+    scores = winLose <$> v
+    probs = avgList scores
+  return probs
+    
+
+  --avgList <*> replicateM 1000 (invadeFinal bf)
+
+winLose :: Battlefield -> Double
+winLose (Battlefield 1 x) = 0
+winLose (Battlefield x 0) = 1
+
+avgList :: [Double] -> Double
+avgList xs = (foldr1 (+) xs)/(fromIntegral (length xs))
+
 main = do
   bff2 <- evalRandIO (invadeFinal (Battlefield 15 15))
-  putStrLn (show bff2)
+  prob <- evalRandIO (successProb (Battlefield 3 3))
+  putStrLn (show prob)
+
+--JMJ DG
