@@ -117,7 +117,7 @@ avgList xs = (foldr1 (+) xs)/(fromIntegral (length xs))
 
 main = do
   bff2 <- evalRandIO (invadeFinal (Battlefield 15 15))
-  prob <- evalRandIO (successProb (Battlefield 3 3))
+  prob <- evalRandIO (successProb (Battlefield 5 3))
   putStrLn (show prob)
 
 --JMJ DG
